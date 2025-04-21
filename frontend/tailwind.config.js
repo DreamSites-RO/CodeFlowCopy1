@@ -29,6 +29,8 @@ export default {
           "linear-gradient(180deg, rgba(255, 255, 0, 0) 40%, rgba(2, 6, 23, 0.85) 70%, rgba(2, 6, 23, 1) 100%)", //Folosesc
         "gradient-radial":
           "radial-gradient(circle at 50% 50%, rgba(4, 15, 26, 1) 60%, rgba(2, 6, 23, 1) 100%)", //Folosesc
+        "learn-gradient":
+          "linear-gradient(90deg, rgba(0, 0, 0, 0.7) 0%, rgba(238, 130, 130, 0) 50%);",
       },
       colors: {
         "bg-princ": "#020617",

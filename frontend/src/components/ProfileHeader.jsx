@@ -13,10 +13,11 @@ const ProfileHeader = ({ userData, onSave, isOwnProfile }) => {
   const { data: authUser } = useQuery({
     queryKey: ["authUser"],
     queryFn: async () => {
-      const res = await axiosInstance.get("/auth/me"); // Asigură-te că acest endpoint există și returnează datele corecte
+      const res = await axiosInstance.get("/auth/me");
       return res.data;
     },
   });
+
   const { data: connectionStatus, refetch: refetchConnectionStatus } = useQuery(
     {
       queryKey: ["connectionStatus", userData._id],
@@ -26,7 +27,7 @@ const ProfileHeader = ({ userData, onSave, isOwnProfile }) => {
   );
 
   const isConnected = userData.connections.some(
-    (connection) => connection === authUser._id
+    (connection) => connection === authUser?._id
   );
 
   const { mutate: sendConnectionRequest } = useMutation({
@@ -86,65 +87,6 @@ const ProfileHeader = ({ userData, onSave, isOwnProfile }) => {
     return connectionStatus?.data?.status;
   }, [isConnected, connectionStatus]);
 
-  const renderConnectionButton = () => {
-    const baseClass =
-      "text-white py-2 px-4 rounded-full transition duration-300 flex items-center justify-center";
-    switch (getConnectionStatus) {
-      case "connected":
-        return (
-          <div className="flex gap-2 justify-center">
-            <div className={`${baseClass} bg-green-500 hover:bg-green-600`}>
-              <UserCheck size={20} className="mr-2" />
-              Connected
-            </div>
-            <button
-              className={`${baseClass} bg-red-500 hover:bg-red-600 text-sm`}
-              onClick={() => removeConnection(userData._id)}
-            >
-              <X size={20} className="mr-2" />
-              Remove Connection
-            </button>
-          </div>
-        );
-
-      case "pending":
-        return (
-          <button className={`${baseClass} bg-yellow-500 hover:bg-yellow-600`}>
-            <Clock size={20} className="mr-2" />
-            Pending
-          </button>
-        );
-
-      case "received":
-        return (
-          <div className="flex gap-2 justify-center">
-            <button
-              onClick={() => acceptRequest(connectionStatus.data.requestId)}
-              className={`${baseClass} bg-green-500 hover:bg-green-600`}
-            >
-              Accept
-            </button>
-            <button
-              onClick={() => rejectRequest(connectionStatus.data.requestId)}
-              className={`${baseClass} bg-red-500 hover:bg-red-600`}
-            >
-              Reject
-            </button>
-          </div>
-        );
-      default:
-        return (
-          <button
-            onClick={() => sendConnectionRequest(userData._id)}
-            className="bg-primary hover:bg-primary-dark text-white py-2 px-4 rounded-full transition duration-300 flex items-center justify-center"
-          >
-            <UserPlus size={20} className="mr-2" />
-            Connect
-          </button>
-        );
-    }
-  };
-
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -164,10 +106,72 @@ const ProfileHeader = ({ userData, onSave, isOwnProfile }) => {
     setIsEditing(false);
   };
 
+  const baseButtonClass =
+    "text-white py-2 px-4 rounded-full transition duration-300 flex items-center justify-center";
+
+  const renderConnectionButton = () => {
+    switch (getConnectionStatus) {
+      case "connected":
+        return (
+          <div className="flex gap-2 justify-center">
+            <div
+              className={`${baseButtonClass} bg-green-600 hover:bg-green-700`}
+            >
+              <UserCheck size={20} className="mr-2" />
+              Connected
+            </div>
+            <button
+              className={`${baseButtonClass} bg-red-600 hover:bg-red-700`}
+              onClick={() => removeConnection(userData._id)}
+            >
+              <X size={20} className="mr-2" />
+              Remove
+            </button>
+          </div>
+        );
+      case "pending":
+        return (
+          <button
+            className={`${baseButtonClass} bg-yellow-500 hover:bg-yellow-600`}
+          >
+            <Clock size={20} className="mr-2" />
+            Pending
+          </button>
+        );
+      case "received":
+        return (
+          <div className="flex gap-2 justify-center">
+            <button
+              onClick={() => acceptRequest(connectionStatus.data.requestId)}
+              className={`${baseButtonClass} bg-green-600 hover:bg-green-700`}
+            >
+              Accept
+            </button>
+            <button
+              onClick={() => rejectRequest(connectionStatus.data.requestId)}
+              className={`${baseButtonClass} bg-red-600 hover:bg-red-700`}
+            >
+              Reject
+            </button>
+          </div>
+        );
+      default:
+        return (
+          <button
+            onClick={() => sendConnectionRequest(userData._id)}
+            className="bg-primary hover:bg-primary-dark text-white py-2 px-4 rounded-full transition duration-300 flex items-center justify-center"
+          >
+            <UserPlus size={20} className="mr-2" />
+            Connect
+          </button>
+        );
+    }
+  };
+
   return (
-    <div className="bg-white shadow rounded-lg mb-6">
+    <div className="w-full mb-6 bg-[#0F111A] border-2 border-gray-700 rounded-lg overflow-hidden shadow-lg text-text-gray font-poppins hover:bg-[#0F112A] hover:bg-opacity-70 transition-all duration-500">
       <div
-        className="relative h-48 rounded-t-lg bg-cover bg-center"
+        className="relative h-40 bg-cover bg-center"
         style={{
           backgroundImage: `url('${
             editedData.bannerImg || userData.bannerImg || "/banner.png"
@@ -175,7 +179,7 @@ const ProfileHeader = ({ userData, onSave, isOwnProfile }) => {
         }}
       >
         {isEditing && (
-          <label className="absolute top-2 right-2 bg-white p-2 rounded-full shadow cursor-pointer">
+          <label className="absolute top-2 right-2 bg-gray-800 text-white p-2 rounded-full shadow cursor-pointer">
             <Camera size={20} />
             <input
               type="file"
@@ -188,10 +192,10 @@ const ProfileHeader = ({ userData, onSave, isOwnProfile }) => {
         )}
       </div>
 
-      <div className="p-4">
-        <div className="relative -mt-20 mb-4">
+      <div className="p-4 text-center">
+        <div className="relative -mt-16">
           <img
-            className="w-32 h-32 rounded-full mx-auto object-cover"
+            className="w-28 h-28 rounded-full mx-auto object-cover border-4 border-gray-800"
             src={
               editedData.profilePicture ||
               userData.profilePicture ||
@@ -199,9 +203,8 @@ const ProfileHeader = ({ userData, onSave, isOwnProfile }) => {
             }
             alt={userData.name}
           />
-
           {isEditing && (
-            <label className="absolute bottom-0 right-1/2 transform translate-x-16 bg-white p-2 rounded-full shadow cursor-pointer">
+            <label className="absolute bottom-0 right-1/2 transform translate-x-14 bg-gray-800 text-white p-2 rounded-full shadow cursor-pointer">
               <Camera size={20} />
               <input
                 type="file"
@@ -214,7 +217,7 @@ const ProfileHeader = ({ userData, onSave, isOwnProfile }) => {
           )}
         </div>
 
-        <div className="text-center mb-4">
+        <div className="mt-2">
           {isEditing ? (
             <input
               type="text"
@@ -222,10 +225,10 @@ const ProfileHeader = ({ userData, onSave, isOwnProfile }) => {
               onChange={(e) =>
                 setEditedData({ ...editedData, name: e.target.value })
               }
-              className="text-2xl font-bold mb-2 text-center w-full"
+              className="text-xl font-bold bg-transparent text-center w-full text-white"
             />
           ) : (
-            <h1 className="text-2xl font-bold mb-2">{userData.name}</h1>
+            <h1 className="text-xl font-bold text-white">{userData.name}</h1>
           )}
 
           {isEditing ? (
@@ -235,10 +238,10 @@ const ProfileHeader = ({ userData, onSave, isOwnProfile }) => {
               onChange={(e) =>
                 setEditedData({ ...editedData, headline: e.target.value })
               }
-              className="text-gray-600 text-center w-full"
+              className="text-gray-400 text-sm bg-transparent text-center w-full"
             />
           ) : (
-            <p className="text-gray-600">{userData.headline}</p>
+            <p className="text-sm text-gray-400">{userData.headline}</p>
           )}
 
           <div className="flex justify-center items-center mt-2">
@@ -250,37 +253,40 @@ const ProfileHeader = ({ userData, onSave, isOwnProfile }) => {
                 onChange={(e) =>
                   setEditedData({ ...editedData, location: e.target.value })
                 }
-                className="text-gray-600 text-center"
+                className="text-gray-400 text-sm bg-transparent text-center"
               />
             ) : (
-              <span className="text-gray-600">{userData.location}</span>
+              <span className="text-gray-400 text-sm">{userData.location}</span>
             )}
           </div>
         </div>
 
-        {isOwnProfile ? (
-          isEditing ? (
-            <button
-              className="w-full bg-primary text-white py-2 px-4 rounded-full hover:bg-primary-dark
-							 transition duration-300"
-              onClick={handleSave}
-            >
-              Save Profile
-            </button>
+        <div className="mt-4">
+          {isOwnProfile ? (
+            isEditing ? (
+              <button
+                className="w-full bg-primary text-white py-2 px-4 rounded-full hover:bg-primary-dark transition duration-300"
+                onClick={handleSave}
+              >
+                Save Profile
+              </button>
+            ) : (
+              <button
+                onClick={() => setIsEditing(true)}
+                className="w-full bg-primary text-white py-2 px-4 rounded-full hover:bg-primary-dark transition duration-300"
+              >
+                Edit Profile
+              </button>
+            )
           ) : (
-            <button
-              onClick={() => setIsEditing(true)}
-              className="w-full bg-primary text-white py-2 px-4 rounded-full hover:bg-primary-dark
-							 transition duration-300"
-            >
-              Edit Profile
-            </button>
-          )
-        ) : (
-          <div className="flex justify-center">{renderConnectionButton()}</div>
-        )}
+            <div className="flex justify-center">
+              {renderConnectionButton()}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
 };
+
 export default ProfileHeader;

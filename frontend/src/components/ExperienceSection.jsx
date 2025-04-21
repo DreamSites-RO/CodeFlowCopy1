@@ -52,29 +52,32 @@ const ExperienceSection = ({ userData, isOwnProfile, onSave }) => {
   };
 
   return (
-    <div className="bg-white shadow rounded-lg p-6 mb-6">
-      <h2 className="text-xl font-semibold mb-4">Experience</h2>
+    <div className="w-full mb-6 bg-[#0F111A] border-2 border-gray-700 rounded-lg overflow-hidden shadow-lg text-text-gray font-poppins hover:bg-[#0F112A] hover:bg-opacity-70 transition-all duration-500 p-6">
+      <h2 className="text-xl font-bold text-white mb-4">Experience</h2>
+
       {experiences.map((exp, index) => (
         <div
           key={exp._id || index}
           className="mb-4 flex justify-between items-start"
         >
           <div className="flex items-start">
-            <Briefcase size={20} className="mr-2 mt-1" />
+            <Briefcase size={20} className="text-gray-400 mr-2 mt-1" />
             <div>
-              <h3 className="font-semibold">{exp.title}</h3>
-              <p className="text-gray-600">{exp.company}</p>
-              <p className="text-gray-500 text-sm">
-                {formatDate(exp.startDate)} -{" "}
+              <h3 className="font-semibold text-white">{exp.title}</h3>
+              <p className="text-sm text-gray-400">{exp.company}</p>
+              <p className="text-xs text-gray-500">
+                {formatDate(exp.startDate)} –{" "}
                 {exp.endDate ? formatDate(exp.endDate) : "Present"}
               </p>
-              <p className="text-gray-700">{exp.description}</p>
+              <p className="text-sm text-gray-300 mt-1 whitespace-pre-line">
+                {exp.description}
+              </p>
             </div>
           </div>
           {isEditing && (
             <button
               onClick={() => handleDeleteExperience(exp._id)}
-              className="text-red-500"
+              className="text-red-500 hover:text-red-400 transition"
             >
               <X size={20} />
             </button>
@@ -83,7 +86,7 @@ const ExperienceSection = ({ userData, isOwnProfile, onSave }) => {
       ))}
 
       {isEditing && (
-        <div className="mt-4">
+        <div className="mt-6 space-y-3">
           <input
             type="text"
             placeholder="Title"
@@ -91,7 +94,7 @@ const ExperienceSection = ({ userData, isOwnProfile, onSave }) => {
             onChange={(e) =>
               setNewExperience({ ...newExperience, title: e.target.value })
             }
-            className="w-full p-2 border rounded mb-2"
+            className="w-full p-2 bg-gray-800 text-white border border-gray-600 rounded placeholder-gray-400"
           />
           <input
             type="text"
@@ -100,38 +103,39 @@ const ExperienceSection = ({ userData, isOwnProfile, onSave }) => {
             onChange={(e) =>
               setNewExperience({ ...newExperience, company: e.target.value })
             }
-            className="w-full p-2 border rounded mb-2"
+            className="w-full p-2 bg-gray-800 text-white border border-gray-600 rounded placeholder-gray-400"
           />
           <input
             type="date"
-            placeholder="Start Date"
             value={newExperience.startDate}
             onChange={(e) =>
               setNewExperience({ ...newExperience, startDate: e.target.value })
             }
-            className="w-full p-2 border rounded mb-2"
+            className="w-full p-2 bg-gray-800 text-white border border-gray-600 rounded"
           />
-          <div className="flex items-center mb-2">
+
+          <div className="flex items-center text-sm text-white">
             <input
               type="checkbox"
               id="currentlyWorking"
               checked={newExperience.currentlyWorking}
               onChange={handleCurrentlyWorkingChange}
-              className="mr-2"
+              className="mr-2 accent-primary"
             />
             <label htmlFor="currentlyWorking">I currently work here</label>
           </div>
+
           {!newExperience.currentlyWorking && (
             <input
               type="date"
-              placeholder="End Date"
               value={newExperience.endDate}
               onChange={(e) =>
                 setNewExperience({ ...newExperience, endDate: e.target.value })
               }
-              className="w-full p-2 border rounded mb-2"
+              className="w-full p-2 bg-gray-800 text-white border border-gray-600 rounded"
             />
           )}
+
           <textarea
             placeholder="Description"
             value={newExperience.description}
@@ -141,11 +145,13 @@ const ExperienceSection = ({ userData, isOwnProfile, onSave }) => {
                 description: e.target.value,
               })
             }
-            className="w-full p-2 border rounded mb-2"
+            rows="4"
+            className="w-full p-2 bg-gray-800 text-white border border-gray-600 rounded placeholder-gray-400 resize-none"
           />
+
           <button
             onClick={handleAddExperience}
-            className="bg-primary text-white py-2 px-4 rounded hover:bg-primary-dark transition duration-300"
+            className="bg-primary text-white py-2 px-4 rounded-full hover:bg-primary-dark transition duration-300"
           >
             Add Experience
           </button>
@@ -153,25 +159,26 @@ const ExperienceSection = ({ userData, isOwnProfile, onSave }) => {
       )}
 
       {isOwnProfile && (
-        <>
+        <div className="mt-6">
           {isEditing ? (
             <button
               onClick={handleSave}
-              className="mt-4 bg-primary text-white py-2 px-4 rounded hover:bg-primary-dark transition duration-300"
+              className="w-full bg-primary text-white py-2 px-4 rounded-full hover:bg-primary-dark transition duration-300"
             >
               Save Changes
             </button>
           ) : (
             <button
               onClick={() => setIsEditing(true)}
-              className="mt-4 text-primary hover:text-primary-dark transition duration-300"
+              className="text-primary hover:text-primary-dark transition duration-300"
             >
               Edit Experiences
             </button>
           )}
-        </>
+        </div>
       )}
     </div>
   );
 };
+
 export default ExperienceSection;

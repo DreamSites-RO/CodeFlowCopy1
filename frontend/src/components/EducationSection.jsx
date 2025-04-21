@@ -37,32 +37,34 @@ const EducationSection = ({ userData, isOwnProfile, onSave }) => {
   };
 
   return (
-    <div className="bg-white shadow rounded-lg p-6 mb-6">
-      <h2 className="text-xl font-semibold mb-4">Education</h2>
+    <div className="w-full mb-6 bg-[#0F111A] border-2 border-gray-700 rounded-lg overflow-hidden shadow-lg text-text-gray font-poppins hover:bg-[#0F112A] hover:bg-opacity-70 transition-all duration-500 p-6">
+      <h2 className="text-xl font-bold text-white mb-4">Education</h2>
+
       {educations.map((edu) => (
         <div key={edu._id} className="mb-4 flex justify-between items-start">
           <div className="flex items-start">
-            <School size={20} className="mr-2 mt-1" />
+            <School size={20} className="text-gray-400 mr-2 mt-1" />
             <div>
-              <h3 className="font-semibold">{edu.fieldOfStudy}</h3>
-              <p className="text-gray-600">{edu.school}</p>
-              <p className="text-gray-500 text-sm">
-                {edu.startYear} - {edu.endYear || "Present"}
+              <h3 className="font-semibold text-white">{edu.fieldOfStudy}</h3>
+              <p className="text-sm text-gray-400">{edu.school}</p>
+              <p className="text-xs text-gray-500">
+                {edu.startYear} – {edu.endYear || "Present"}
               </p>
             </div>
           </div>
           {isEditing && (
             <button
               onClick={() => handleDeleteEducation(edu._id)}
-              className="text-red-500"
+              className="text-red-500 hover:text-red-400 transition"
             >
               <X size={20} />
             </button>
           )}
         </div>
       ))}
+
       {isEditing && (
-        <div className="mt-4">
+        <div className="mt-6 space-y-3">
           <input
             type="text"
             placeholder="School"
@@ -70,7 +72,7 @@ const EducationSection = ({ userData, isOwnProfile, onSave }) => {
             onChange={(e) =>
               setNewEducation({ ...newEducation, school: e.target.value })
             }
-            className="w-full p-2 border rounded mb-2"
+            className="w-full p-2 bg-gray-800 text-white border border-gray-600 rounded placeholder-gray-400"
           />
           <input
             type="text"
@@ -79,7 +81,7 @@ const EducationSection = ({ userData, isOwnProfile, onSave }) => {
             onChange={(e) =>
               setNewEducation({ ...newEducation, fieldOfStudy: e.target.value })
             }
-            className="w-full p-2 border rounded mb-2"
+            className="w-full p-2 bg-gray-800 text-white border border-gray-600 rounded placeholder-gray-400"
           />
           <input
             type="number"
@@ -88,7 +90,7 @@ const EducationSection = ({ userData, isOwnProfile, onSave }) => {
             onChange={(e) =>
               setNewEducation({ ...newEducation, startYear: e.target.value })
             }
-            className="w-full p-2 border rounded mb-2"
+            className="w-full p-2 bg-gray-800 text-white border border-gray-600 rounded placeholder-gray-400"
           />
           <input
             type="number"
@@ -97,11 +99,12 @@ const EducationSection = ({ userData, isOwnProfile, onSave }) => {
             onChange={(e) =>
               setNewEducation({ ...newEducation, endYear: e.target.value })
             }
-            className="w-full p-2 border rounded mb-2"
+            className="w-full p-2 bg-gray-800 text-white border border-gray-600 rounded placeholder-gray-400"
           />
+
           <button
             onClick={handleAddEducation}
-            className="bg-primary text-white py-2 px-4 rounded hover:bg-primary-dark transition duration-300"
+            className="bg-primary text-white py-2 px-4 rounded-full hover:bg-primary-dark transition duration-300"
           >
             Add Education
           </button>
@@ -109,26 +112,26 @@ const EducationSection = ({ userData, isOwnProfile, onSave }) => {
       )}
 
       {isOwnProfile && (
-        <>
+        <div className="mt-6">
           {isEditing ? (
             <button
               onClick={handleSave}
-              className="mt-4 bg-primary text-white py-2 px-4 rounded hover:bg-primary-dark
-							 transition duration-300"
+              className="w-full bg-primary text-white py-2 px-4 rounded-full hover:bg-primary-dark transition duration-300"
             >
               Save Changes
             </button>
           ) : (
             <button
               onClick={() => setIsEditing(true)}
-              className="mt-4 text-primary hover:text-primary-dark transition duration-300"
+              className="text-primary hover:text-primary-dark transition duration-300"
             >
               Edit Education
             </button>
           )}
-        </>
+        </div>
       )}
     </div>
   );
 };
+
 export default EducationSection;

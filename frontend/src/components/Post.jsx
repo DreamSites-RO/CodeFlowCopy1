@@ -2,7 +2,6 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Link, useParams } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useState } from "react";
-
 import { axiosInstance } from "../lib/axios";
 
 import {
@@ -15,7 +14,6 @@ import {
 } from "lucide-react";
 
 import { formatDistanceToNow } from "date-fns";
-
 import PostAction from "./PostAction";
 
 const Post = ({ post }) => {
@@ -106,7 +104,7 @@ const Post = ({ post }) => {
   };
 
   return (
-    <div className="bg-secondary rounded-lg shadow mb-4">
+    <div className="bg-[#0F111A] rounded-lg shadow mb-4 text-text-gray border-2 border-gray-700 transition-all duration-300">
       <div className="p-4">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center">
@@ -114,16 +112,16 @@ const Post = ({ post }) => {
               <img
                 src={post.author.profilePicture || "/avatar.png"}
                 alt={post.author.name}
-                className="size-10 rounded-full mr-3"
+                className="w-10 h-10 rounded-full mr-3"
               />
             </Link>
 
             <div>
               <Link to={`/profile/${post?.author?.username}`}>
-                <h3 className="font-semibold">{post.author.name}</h3>
+                <h3 className="font-semibold text-white">{post.author.name}</h3>
               </Link>
-              <p className="text-xs text-info">{post.author.headline}</p>
-              <p className="text-xs text-info">
+              <p className="text-xs text-gray-400">{post.author.headline}</p>
+              <p className="text-xs text-gray-400">
                 {formatDistanceToNow(new Date(post.createdAt), {
                   addSuffix: true,
                 })}
@@ -133,7 +131,7 @@ const Post = ({ post }) => {
           {isOwner && (
             <button
               onClick={handleDeletePost}
-              className="text-red-500 hover:text-red-700"
+              className="text-red-500 hover:text-red-700 transition duration-300"
             >
               {isDeletingPost ? (
                 <Loader size={18} className="animate-spin" />
@@ -143,7 +141,7 @@ const Post = ({ post }) => {
             </button>
           )}
         </div>
-        <p className="mb-4">{post.content}</p>
+        <p className="mb-4 text-white">{post.content}</p>
         {post.image && (
           <img
             src={post.image}
@@ -152,12 +150,12 @@ const Post = ({ post }) => {
           />
         )}
 
-        <div className="flex justify-between text-info">
+        <div className="flex justify-between text-gray-400">
           <PostAction
             icon={
               <ThumbsUp
                 size={18}
-                className={isLiked ? "text-blue-500  fill-blue-300" : ""}
+                className={isLiked ? "text-blue-500 fill-blue-300" : ""}
               />
             }
             text={`Like (${post.likes.length})`}
@@ -174,12 +172,12 @@ const Post = ({ post }) => {
       </div>
 
       {showComments && (
-        <div className="px-4 pb-4">
+        <div className="px-4 pb-4 bg-[#1A1D2E] rounded-b-lg">
           <div className="mb-4 max-h-60 overflow-y-auto">
             {comments.map((comment) => (
               <div
                 key={comment._id || Math.random().toString(36).substr(2, 9)}
-                className="mb-2 bg-base-100 p-2 rounded flex items-start"
+                className="mb-2 bg-[#1A1D2E] p-2 rounded flex items-start"
               >
                 <img
                   src={comment.user.profilePicture || "/avatar.png"}
@@ -188,14 +186,14 @@ const Post = ({ post }) => {
                 />
                 <div className="flex-grow">
                   <div className="flex items-center mb-1">
-                    <span className="font-semibold mr-2">
+                    <span className="font-semibold text-white mr-2">
                       {comment.user.name}
                     </span>
-                    <span className="text-xs text-info">
+                    <span className="text-xs text-gray-400">
                       {formatDistanceToNow(new Date(comment.createdAt))}
                     </span>
                   </div>
-                  <p>{comment.content}</p>
+                  <p className="text-white">{comment.content}</p>
                 </div>
               </div>
             ))}
@@ -207,7 +205,7 @@ const Post = ({ post }) => {
               value={newComment}
               onChange={(e) => setNewComment(e.target.value)}
               placeholder="Add a comment..."
-              className="flex-grow p-2 rounded-l-full bg-base-100 focus:outline-none focus:ring-2 focus:ring-primary"
+              className="flex-grow p-2 rounded-l-full bg-[#1A1D2E] text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary"
             />
 
             <button
@@ -227,4 +225,5 @@ const Post = ({ post }) => {
     </div>
   );
 };
+
 export default Post;

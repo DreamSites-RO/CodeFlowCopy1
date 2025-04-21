@@ -2,7 +2,6 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Image, Loader } from "lucide-react";
 import toast from "react-hot-toast";
 import { useState } from "react";
-
 import { axiosInstance } from "../lib/axios";
 
 const PostCreation = ({ user }) => {
@@ -33,7 +32,6 @@ const PostCreation = ({ user }) => {
     try {
       const postData = { content };
       if (image) postData.image = await readFileAsDataURL(image);
-
       createPostMutation(postData);
     } catch (error) {
       console.error("Error in handlePostCreation:", error);
@@ -66,35 +64,35 @@ const PostCreation = ({ user }) => {
   };
 
   return (
-    <div className="bg-secondary rounded-lg shadow mb-4 p-4">
-      <div className="flex space-x-3">
-        <img
-          src={user.profilePicture || "/avatar.png"}
-          alt={user.name}
-          className="size-12 rounded-full"
-        />
-        <textarea
-          placeholder="What's on your mind?"
-          className="w-full p-3 rounded-lg bg-base-100 hover:bg-base-200 focus:bg-base-200 focus:outline-none resize-none transition-colors duration-200 min-h-[100px]"
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-        />
-      </div>
-
-      {imagePreview && (
-        <div className="mt-4">
+    <div className="w-full bg-[#0F111A] border-2 border-gray-700 rounded-lg font-poppins text-sm text-text-gray overflow-hidden shadow-lg mb-6 transition-all duration-300">
+      <div className="p-4">
+        <div className="flex space-x-3">
           <img
-            src={imagePreview}
-            alt="Selected"
-            className="w-full h-auto rounded-lg"
+            src={user.profilePicture || "/avatar.png"}
+            alt={user.name}
+            className="w-12 h-12 rounded-full object-cover"
+          />
+          <textarea
+            placeholder="What's on your mind?"
+            className="w-full p-3 rounded-md bg-[#1a1d2e] hover:bg-[#202436] focus:bg-[#202436] focus:outline-none resize-none text-white placeholder:text-gray-500 transition-colors duration-200 min-h-[100px]"
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
           />
         </div>
-      )}
 
-      <div className="flex justify-between items-center mt-4">
-        <div className="flex space-x-4">
-          <label className="flex items-center text-info hover:text-info-dark transition-colors duration-200 cursor-pointer">
-            <Image size={20} className="mr-2" />
+        {imagePreview && (
+          <div className="mt-4">
+            <img
+              src={imagePreview}
+              alt="Preview"
+              className="w-full h-auto rounded-lg"
+            />
+          </div>
+        )}
+
+        <div className="flex justify-between items-center mt-4">
+          <label className="flex items-center text-gray-400 hover:text-primary transition-colors duration-200 cursor-pointer text-sm">
+            <Image size={18} className="mr-2" />
             <span>Photo</span>
             <input
               type="file"
@@ -103,17 +101,29 @@ const PostCreation = ({ user }) => {
               onChange={handleImageChange}
             />
           </label>
-        </div>
 
-        <button
-          className="bg-primary text-white rounded-lg px-4 py-2 hover:bg-primary-dark transition-colors duration-200"
-          onClick={handlePostCreation}
-          disabled={isPending}
-        >
-          {isPending ? <Loader className="size-5 animate-spin" /> : "Share"}
-        </button>
+          <button
+            onClick={handlePostCreation}
+            disabled={isPending}
+            className={`flex items-center px-4 py-2 rounded-md text-sm transition-colors duration-200 font-medium ${
+              isPending
+                ? "bg-primary bg-opacity-60 text-white cursor-not-allowed"
+                : "bg-primary text-white hover:bg-primary-dark"
+            }`}
+          >
+            {isPending ? (
+              <>
+                <Loader className="size-4 animate-spin mr-2" />
+                Posting...
+              </>
+            ) : (
+              "Share"
+            )}
+          </button>
+        </div>
       </div>
     </div>
   );
 };
+
 export default PostCreation;

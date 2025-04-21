@@ -21,7 +21,6 @@ const fadeUpVariant = {
 const UnknownUser = () => {
   const [activeTab, setActiveTab] = useState(1);
 
-  //   {
   //     id: 1,
   //     question: "What is web development?",
   //     answer:

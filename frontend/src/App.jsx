@@ -3,15 +3,19 @@ import { useQuery } from "@tanstack/react-query";
 import toast, { Toaster } from "react-hot-toast";
 
 import Layout from "./components/layout/Layout";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 import NotificationsPage from "./pages/NotificationsPage";
 import UnknownUser from "./pages/auth/UnknownUser";
+import CommunityPage from "./pages/CommunityPage";
 import SignUpPage from "./pages/auth/SignUpPage";
 import LoginPage from "./pages/auth/LoginPage";
 import NetworkPage from "./pages/NetworkPage";
 import ProfilePage from "./pages/ProfilePage";
+import LearnPage from "./pages/LearnPage";
 import PostPage from "./pages/PostPage";
 import HomePage from "./pages/HomePage";
+import LearnHTMLPage from "./pages/learnPages/LearnHTMLPage";
 
 import { axiosInstance } from "./lib/axios";
 
@@ -26,7 +30,8 @@ function App() {
         if (err.response && err.response.status === 401) {
           return null;
         }
-        toast.error(err.response.data.message || "Something went wrong");
+        toast.error(err.response?.data?.message || "Something went wrong");
+        return null;
       }
     },
   });
@@ -36,36 +41,86 @@ function App() {
   return (
     <Layout>
       <Routes>
-        <Route
-          path="/"
-          element={authUser ? <HomePage /> : <Navigate to={"/welcome"} />}
-        />
+        {/* Public routes */}
         <Route path="/welcome" element={<UnknownUser />} />
         <Route
           path="/signup"
-          element={!authUser ? <SignUpPage /> : <Navigate to={"/"} />}
+          element={!authUser ? <SignUpPage /> : <Navigate to="/" replace />}
         />
         <Route
           path="/login"
-          element={!authUser ? <LoginPage /> : <Navigate to={"/"} />}
+          element={!authUser ? <LoginPage /> : <Navigate to="/" replace />}
+        />
+
+        {/* Protected routes */}
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute user={authUser}>
+              <HomePage />
+            </ProtectedRoute>
+          }
         />
         <Route
           path="/notifications"
           element={
-            authUser ? <NotificationsPage /> : <Navigate to={"/welcome"} />
+            <ProtectedRoute user={authUser}>
+              <NotificationsPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/community"
+          element={
+            <ProtectedRoute user={authUser}>
+              <CommunityPage />
+            </ProtectedRoute>
           }
         />
         <Route
           path="/network"
-          element={authUser ? <NetworkPage /> : <Navigate to={"/welcome"} />}
+          element={
+            <ProtectedRoute user={authUser}>
+              <NetworkPage />
+            </ProtectedRoute>
+          }
         />
         <Route
           path="/post/:postId"
-          element={authUser ? <PostPage /> : <Navigate to={"/welcome"} />}
+          element={
+            <ProtectedRoute user={authUser}>
+              <PostPage />
+            </ProtectedRoute>
+          }
         />
         <Route
           path="/profile/:username"
-          element={authUser ? <ProfilePage /> : <Navigate to={"/welcome"} />}
+          element={
+            <ProtectedRoute user={authUser}>
+              <ProfilePage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/learn"
+          element={
+            <ProtectedRoute user={authUser}>
+              <LearnPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/learnhtml"
+          element={
+            <ProtectedRoute user={authUser}>
+              <LearnHTMLPage />
+            </ProtectedRoute>
+          }
+        />
+        {/* Catch-all */}
+        <Route
+          path="*"
+          element={<Navigate to={authUser ? "/" : "/login"} replace />}
         />
       </Routes>
       <Toaster />
