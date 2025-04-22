@@ -29,49 +29,58 @@ const NetworkPage = () => {
   return (
     <div className="max-w-[1440px] mx-auto px-4 py-6">
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-        <div className="col-span-1 lg:col-span-1">
+        <div className="col-span-1">
           <Sidebar user={user} />
         </div>
         <div className="col-span-1 lg:col-span-3">
-          <div className="bg-secondary rounded-lg shadow p-6 mb-6">
-            <h1 className="text-2xl font-bold mb-6">My Network</h1>
+          <div className="bg-[#0F111A] rounded-lg shadow p-6 mb-6 border-2 border-gray-700 font-poppins text-text-gray">
+            <h1 className="text-2xl font-bold mb-6 text-white">My Network</h1>
 
             {connectionRequests?.data?.length > 0 ? (
               <div className="mb-8">
-                <h2 className="text-xl font-semibold mb-2">
-                  Connection Request
+                <h2 className="text-xl font-semibold mb-4 text-white">
+                  Connection Requests
                 </h2>
                 <div className="space-y-4">
                   {connectionRequests.data.map((request) => (
-                    <FriendRequest key={request.id} request={request} />
+                    <div
+                      key={request.id}
+                      className="hover:bg-[#0F112A] hover:bg-opacity-70 transition-all duration-500 bg-[#0F111A] border-2 border-gray-700 rounded-lg shadow text-text-gray p-4"
+                    >
+                      <FriendRequest request={request} />
+                    </div>
                   ))}
                 </div>
               </div>
             ) : (
-              <div className="bg-white rounded-lg shadow p-6 text-center mb-6">
+              <div className="bg-[#0F111A] hover:bg-[#0F112A] hover:bg-opacity-70 transition-all duration-500 border-2 border-gray-700 rounded-lg shadow p-6 text-center mb-6">
                 <UserPlus size={48} className="mx-auto text-gray-400 mb-4" />
-                <h3 className="text-xl font-semibold mb-2">
+                <h3 className="text-xl font-semibold mb-2 text-white">
                   No Connection Requests
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-gray-400">
                   You don&apos;t have any pending connection requests at the
                   moment.
                 </p>
-                <p className="text-gray-600 mt-2">
+                <p className="text-gray-500 mt-2">
                   Explore suggested connections below to expand your network!
                 </p>
               </div>
             )}
+
             {connections?.data?.length > 0 && (
               <div className="mb-8">
-                <h2 className="text-xl font-semibold mb-4">My Connections</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <h2 className="text-xl font-semibold mb-4 text-white">
+                  My Connections
+                </h2>
+                <div className="flex flex-col gap-4">
                   {connections.data.map((connection) => (
-                    <UserCard
+                    <div
                       key={connection._id}
-                      user={connection}
-                      isConnection={true}
-                    />
+                      className="hover:bg-[#0F112A] hover:bg-opacity-70 transition-all duration-500 bg-[#0F111A] border-2 border-gray-700 rounded-lg shadow p-4"
+                    >
+                      <UserCard user={connection} isConnection={true} />
+                    </div>
                   ))}
                 </div>
               </div>
@@ -82,4 +91,5 @@ const NetworkPage = () => {
     </div>
   );
 };
+
 export default NetworkPage;

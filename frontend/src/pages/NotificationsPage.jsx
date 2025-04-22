@@ -20,10 +20,11 @@ const NotificationsPage = () => {
   const { data: authUser } = useQuery({
     queryKey: ["authUser"],
     queryFn: async () => {
-      const res = await axiosInstance.get("/auth/me"); // Make sure that the URL is correct
+      const res = await axiosInstance.get("/auth/me");
       return res.data;
     },
   });
+
   const queryClient = useQueryClient();
 
   const { data: notifications, isLoading } = useQuery({
@@ -33,7 +34,6 @@ const NotificationsPage = () => {
 
   const { mutate: markAsReadMutation } = useMutation({
     mutationFn: (id) => {
-      console.log("ID trimis pentru citire notificare:", id); // Debugging
       return axiosInstance.put(`/notifications/${id}/read`);
     },
     onSuccess: () => {
@@ -52,12 +52,11 @@ const NotificationsPage = () => {
   const renderNotificationIcon = (type) => {
     switch (type) {
       case "like":
-        return <ThumbsUp className="text-blue-500" />;
-
+        return <ThumbsUp className="text-blue-400" />;
       case "comment":
-        return <MessageSquare className="text-green-500" />;
+        return <MessageSquare className="text-green-400" />;
       case "connectionAccepted":
-        return <UserPlus className="text-purple-500" />;
+        return <UserPlus className="text-purple-400" />;
       default:
         return null;
     }
@@ -106,7 +105,7 @@ const NotificationsPage = () => {
     return (
       <Link
         to={`/post/${relatedPost._id}`}
-        className="mt-2 p-2 bg-gray-50 rounded-md flex items-center space-x-2 hover:bg-gray-100 transition-colors"
+        className="mt-2 p-2 bg-gray-800 rounded-md flex items-center space-x-2 hover:bg-gray-700 transition-colors"
       >
         {relatedPost.image && (
           <img
@@ -116,7 +115,7 @@ const NotificationsPage = () => {
           />
         )}
         <div className="flex-1 overflow-hidden">
-          <p className="text-sm text-gray-600 truncate">
+          <p className="text-sm text-gray-300 truncate">
             {relatedPost.content}
           </p>
         </div>
@@ -128,25 +127,28 @@ const NotificationsPage = () => {
   return (
     <div className="max-w-[1440px] mx-auto px-4 py-6">
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-        <div className="col-span-1 lg:col-span-1">
+        <div className="col-span-1">
           <Sidebar user={authUser} />
         </div>
+
         <div className="col-span-1 lg:col-span-3">
-          <div className="bg-white rounded-lg shadow p-6">
-            <h1 className="text-2xl font-bold mb-6">Notifications</h1>
+          <div className="bg-[#0F111A] rounded-lg shadow p-6">
+            <h1 className="text-2xl font-bold mb-6 text-white">
+              Notifications
+            </h1>
 
             {isLoading ? (
-              <p>Loading notifications...</p>
+              <p className="text-gray-400">Loading notifications...</p>
             ) : notifications && notifications.data.length > 0 ? (
               <ul>
                 {notifications.data.map((notification) => (
                   <li
                     key={notification._id}
-                    className={`bg-white border rounded-lg p-4 my-4 transition-all hover:shadow-md ${
-                      !notification.read ? "border-blue-500" : "border-gray-200"
+                    className={`w-full hover:bg-[#0F112A] hover:bg-opacity-70 transition-all duration-500 bg-[#0F111A] border-2 font-poppins border-gray-700 rounded-lg text-left overflow-hidden shadow-lg text-text-gray p-4 my-4 ${
+                      !notification.read ? "border-blue-500" : "border-gray-700"
                     }`}
                   >
-                    <div className="flex items-start justify-between">
+                    <div className="flex items-start justify-between gap-4">
                       <div className="flex items-center space-x-4">
                         <Link
                           to={`/profile/${notification.relatedUser.username}`}
@@ -163,10 +165,10 @@ const NotificationsPage = () => {
 
                         <div>
                           <div className="flex items-center gap-2">
-                            <div className="p-1 bg-gray-100 rounded-full">
+                            <div className="p-1 bg-gray-800 rounded-full">
                               {renderNotificationIcon(notification.type)}
                             </div>
-                            <p className="text-sm">
+                            <p className="text-sm text-gray-200">
                               {renderNotificationContent(notification)}
                             </p>
                           </div>
@@ -186,18 +188,17 @@ const NotificationsPage = () => {
                         {!notification.read && (
                           <button
                             onClick={() => markAsReadMutation(notification._id)}
-                            className="p-1 bg-blue-100 text-blue-600 rounded hover:bg-blue-200 transition-colors"
+                            className="p-1 bg-blue-900 text-blue-300 rounded hover:bg-blue-800 transition-colors"
                             aria-label="Mark as read"
                           >
                             <Eye size={16} />
                           </button>
                         )}
-
                         <button
                           onClick={() =>
                             deleteNotificationMutation(notification._id)
                           }
-                          className="p-1 bg-red-100 text-red-600 rounded hover:bg-red-200 transition-colors"
+                          className="p-1 bg-red-900 text-red-300 rounded hover:bg-red-800 transition-colors"
                           aria-label="Delete notification"
                         >
                           <Trash2 size={16} />
@@ -208,7 +209,7 @@ const NotificationsPage = () => {
                 ))}
               </ul>
             ) : (
-              <p>No notification at the moment.</p>
+              <p className="text-gray-400">No notifications at the moment.</p>
             )}
           </div>
         </div>
@@ -216,4 +217,5 @@ const NotificationsPage = () => {
     </div>
   );
 };
+
 export default NotificationsPage;
