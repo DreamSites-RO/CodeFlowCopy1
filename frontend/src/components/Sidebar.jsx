@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function Sidebar({ user }) {
   return (
-    <div className="w-full max-w-[320px] mx-auto hover:bg-[#0F112A] hover:bg-opacity-70 transition-all duration-500 bg-[#0F111A] border-2 font-poppins border-gray-700 rounded-lg text-left overflow-hidden shadow-lg text-text-gray text-sm">
+    <div className="w-full max-w-[340px] mx-auto hover:bg-[#0F112A] hover:bg-opacity-70 transition-all duration-500 bg-[#0F111A] border-2 font-poppins border-gray-700 rounded-lg text-left overflow-hidden shadow-lg text-text-gray text-sm">
       <div className="relative">
         <div
           className="w-full h-28 bg-cover bg-center"

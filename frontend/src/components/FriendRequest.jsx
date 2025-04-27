@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
-
+import { Check, X } from "lucide-react";
 import { axiosInstance } from "../lib/axios";
 
 const FriendRequest = ({ request }) => {
@@ -32,8 +32,8 @@ const FriendRequest = ({ request }) => {
   });
 
   return (
-    <div className="bg-white rounded-lg shadow p-4 flex items-center justify-between transition-all hover:shadow-md">
-      <div className="flex items-center gap-4">
+    <div className="flex flex-wrap items-center justify-between gap-4 font-poppins text-text-gray w-full">
+      <div className="flex items-center gap-4 min-w-0">
         <Link to={`/profile/${request.sender.username}`}>
           <img
             src={request.sender.profilePicture || "/avatar.png"}
@@ -42,32 +42,52 @@ const FriendRequest = ({ request }) => {
           />
         </Link>
 
-        <div>
+        <div className="min-w-0">
           <Link
             to={`/profile/${request.sender.username}`}
-            className="font-semibold text-lg"
+            className="text-lg font-semibold text-white hover:underline block truncate"
           >
             {request.sender.name}
           </Link>
-          <p className="text-gray-600">{request.sender.headline}</p>
+          <p className="text-sm text-gray-400 truncate">
+            {request.sender.headline}
+          </p>
         </div>
       </div>
 
-      <div className="space-x-2">
+      <div className="flex gap-2 justify-end items-center">
+        {/* Full buttons on md+ */}
         <button
-          className="bg-primary text-white px-4 py-2 rounded-md hover:bg-primary-dark transition-colors"
           onClick={() => acceptConnectionRequest(request._id)}
+          className="hidden sm:inline-block text-sm sm:text-base border-2 font-poppins font-bold rounded-[10px] px-6 sm:px-8 py-2 transition-all duration-300 text-green-500 border-green-500 bg-green-500 bg-opacity-10 hover:opacity-100"
         >
           Accept
         </button>
         <button
-          className="bg-gray-200 text-gray-800 px-4 py-2 rounded-md hover:bg-gray-300 transition-colors"
           onClick={() => rejectConnectionRequest(request._id)}
+          className="hidden sm:inline-block text-sm sm:text-base border-2 font-poppins font-bold rounded-[10px] px-6 sm:px-8 py-2 transition-all duration-300 text-red-500 border-red-500 bg-red-500 bg-opacity-10 hover:opacity-100"
         >
           Reject
+        </button>
+
+        {/* Icons on small screens */}
+        <button
+          onClick={() => acceptConnectionRequest(request._id)}
+          className="sm:hidden p-2 rounded-full border-2 border-green-500 text-green-500 bg-green-500 bg-opacity-10 hover:bg-opacity-20 transition-all"
+          aria-label="Accept"
+        >
+          <Check size={20} />
+        </button>
+        <button
+          onClick={() => rejectConnectionRequest(request._id)}
+          className="sm:hidden p-2 rounded-full border-2 border-red-500 text-red-500 bg-red-500 bg-opacity-10 hover:bg-opacity-20 transition-all"
+          aria-label="Reject"
+        >
+          <X size={20} />
         </button>
       </div>
     </div>
   );
 };
+
 export default FriendRequest;

@@ -1,6 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
 import { Users } from "lucide-react";
-import toast from "react-hot-toast";
 import React from "react";
 
 import { axiosInstance } from "../lib/axios";
@@ -66,7 +65,7 @@ const HomePage = () => {
 
         {recommendedUsers?.length > 0 && (
           <div className="col-span-1 lg:col-span-1 hidden lg:block">
-            <div className="w-full max-w-[340px] mx-auto bg-[#0F111A] border-2 border-gray-700 rounded-lg hover:bg-[#0F112A] hover:bg-opacity-70 transition-all duration-300 text-text-gray font-poppins shadow-lg p-4">
+            <div className="w-full max-w-[340px] mx-auto bg-[#0F111A] border-2 border-gray-700 rounded-lg hover:bg-opacity-70 transition-all duration-300 text-text-gray font-poppins shadow-lg p-4">
               <h2 className="text-lg font-bold mb-4">People you may know</h2>
               <div className="space-y-3">
                 {recommendedUsers.map((user) => (

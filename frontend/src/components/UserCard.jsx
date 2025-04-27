@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function UserCard({ user, isConnection }) {
   return (
-    <div className="bg-[#0F111A] border-2 border-gray-700 rounded-lg shadow-lg hover:bg-[#0F112A] hover:bg-opacity-70 transition-all duration-500 p-4 w-full flex items-center gap-4 font-poppins text-text-gray">
+    <div className="bg-[#0F111A] rounded-lg shadow-lg hover:bg-[#0F112A] hover:bg-opacity-70 transition-all duration-500 w-full flex items-center gap-4 font-poppins text-text-gray">
       <Link to={`/profile/${user.username}`}>
         <img
           src={user.profilePicture || "/avatar.png"}

@@ -105,16 +105,18 @@ const PostCreation = ({ user }) => {
           <button
             onClick={handlePostCreation}
             disabled={isPending}
-            className={`flex items-center px-4 py-2 rounded-md text-sm transition-colors duration-200 font-medium ${
+            className={`text-sm sm:text-base border-2 font-poppins font-bold rounded-[10px] px-6 sm:px-8 py-2 transition-all duration-300 hover:text-yellow-ok hover:border-yellow-ok hover:bg-opacity-10 ${
               isPending
-                ? "bg-primary bg-opacity-60 text-white cursor-not-allowed"
-                : "bg-primary text-white hover:bg-primary-dark"
+                ? "text-yellow-ok border-yellow-ok bg-yellow-ok bg-opacity-10"
+                : "text-gray-deschis border-text-gray opacity-60 hover:opacity-100"
             }`}
           >
             {isPending ? (
               <>
-                <Loader className="size-4 animate-spin mr-2" />
-                Posting...
+                <div className="flex justify-center items-center">
+                  <Loader className="size-4 animate-spin mr-2" />
+                  Posting...
+                </div>
               </>
             ) : (
               "Share"

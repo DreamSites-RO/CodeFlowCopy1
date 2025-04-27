@@ -2,6 +2,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Check, Clock, UserCheck, UserPlus, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
+
 import { axiosInstance } from "../lib/axios";
 
 const RecommendedUser = ({ user }) => {

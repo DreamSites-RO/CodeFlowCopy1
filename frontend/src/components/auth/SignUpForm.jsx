@@ -1,46 +1,47 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-
-import { React, useState } from "react";
-import { toast } from "react-hot-toast";
 import { Loader } from "lucide-react";
+import toast from "react-hot-toast";
+import { useState } from "react";
 
-import { axiosInstance } from "../../lib/axios.js";
+import { motion } from "framer-motion";
+
+import { axiosInstance } from "../../lib/axios";
 
 const SignUpForm = () => {
   const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const queryClient = useQueryClient();
 
   const { mutate: signUpMutation, isLoading } = useMutation({
-    mutationFn: async (data) => {
-      const res = await axiosInstance.post("/auth/signup", data);
-      return res.data;
-    },
+    mutationFn: (data) => axiosInstance.post("/auth/signup", data),
     onSuccess: () => {
       toast.success("Account created successfully");
       queryClient.invalidateQueries({ queryKey: ["authUser"] });
     },
     onError: (err) => {
-      toast.error(err.response.data.message || "Something went wrong");
+      toast.error(err.response?.data?.message || "Something went wrong");
     },
   });
 
-  const handleSignUp = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     signUpMutation({ name, username, email, password });
   };
 
   return (
-    <form onSubmit={handleSignUp} className="flex flex-col gap-4">
+    <form
+      onSubmit={handleSubmit}
+      className="w-full font-poppins text-sm text-text-gray space-y-4"
+    >
       <input
         type="text"
         placeholder="Full name"
         value={name}
         onChange={(e) => setName(e.target.value)}
-        className="input input-bordered w-full"
+        className="w-full px-4 py-3 rounded-md bg-[#1a1d2e] hover:bg-[#202436] focus:bg-[#202436] focus:outline-none text-white placeholder:text-gray-500 transition-colors duration-200"
         required
       />
       <input
@@ -48,7 +49,7 @@ const SignUpForm = () => {
         placeholder="Username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
-        className="input input-bordered w-full"
+        className="w-full px-4 py-3 rounded-md bg-[#1a1d2e] hover:bg-[#202436] focus:bg-[#202436] focus:outline-none text-white placeholder:text-gray-500 transition-colors duration-200"
         required
       />
       <input
@@ -56,7 +57,7 @@ const SignUpForm = () => {
         placeholder="Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        className="input input-bordered w-full"
+        className="w-full px-4 py-3 rounded-md bg-[#1a1d2e] hover:bg-[#202436] focus:bg-[#202436] focus:outline-none text-white placeholder:text-gray-500 transition-colors duration-200"
         required
       />
       <input
@@ -64,18 +65,31 @@ const SignUpForm = () => {
         placeholder="Password (6+ characters)"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-        className="input input-bordered w-full"
+        className="w-full px-4 py-3 rounded-md bg-[#1a1d2e] hover:bg-[#202436] focus:bg-[#202436] focus:outline-none text-white placeholder:text-gray-500 transition-colors duration-200"
         required
       />
 
-      <button
+      <motion.button
         type="submit"
-        disabled={isLoading}
-        className="btn btn-primary w-full text-white"
+        className={`text-sm sm:text-base border-2 font-poppins font-bold rounded-[10px] px-6 sm:px-8 py-2 transition-all duration-300 w-full flex items-center justify-center ${
+          isLoading
+            ? "text-yellow-ok border-yellow-ok bg-yellow-ok bg-opacity-10 cursor-not-allowed"
+            : "text-yellow-ok border-yellow-ok bg-yellow-ok bg-opacity-10 hover:opacity-100"
+        }`}
+        whileTap={{ scale: 0.98 }}
+        whileHover={{ scale: 1.02 }}
       >
-        {isLoading ? <Loader className="size-5 animate-spin" /> : "Join"}
-      </button>
+        {isLoading ? (
+          <>
+            <Loader className="size-5 animate-spin mr-2" />
+            Creating account...
+          </>
+        ) : (
+          "Join"
+        )}
+      </motion.button>
     </form>
   );
 };
+
 export default SignUpForm;

@@ -16,6 +16,7 @@ import LearnPage from "./pages/LearnPage";
 import PostPage from "./pages/PostPage";
 import HomePage from "./pages/HomePage";
 import LearnHTMLPage from "./pages/learnPages/LearnHTMLPage";
+import TermsPage from "./pages/TermsPage";
 
 import { axiosInstance } from "./lib/axios";
 
@@ -51,6 +52,7 @@ function App() {
           path="/login"
           element={!authUser ? <LoginPage /> : <Navigate to="/" replace />}
         />
+        <Route path="/terms" element={<TermsPage />} />
 
         {/* Protected routes */}
         <Route
