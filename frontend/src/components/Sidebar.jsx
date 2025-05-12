@@ -34,19 +34,19 @@ export default function Sidebar({ user }) {
         <div className="mt-4 space-y-1.5">
           <Link
             to="/"
-            className="flex items-center py-1.5 px-3 rounded-md hover:bg-primary hover:text-white transition-colors"
+            className="flex items-center py-1.5 px-3 rounded-md hover:bg-[#1E1F3A] hover:text-white transition-colors"
           >
             <Home className="mr-2" size={18} /> Home
           </Link>
           <Link
             to="/network"
-            className="flex items-center py-1.5 px-3 rounded-md hover:bg-primary hover:text-white transition-colors"
+            className="flex items-center py-1.5 px-3 rounded-md hover:bg-[#1E1F3A] hover:text-white transition-colors"
           >
             <UserPlus className="mr-2" size={18} /> My Network
           </Link>
           <Link
             to="/notifications"
-            className="flex items-center py-1.5 px-3 rounded-md hover:bg-primary hover:text-white transition-colors"
+            className="flex items-center py-1.5 px-3 rounded-md hover:bg-[#1E1F3A] hover:text-white transition-colors"
           >
             <Bell className="mr-2" size={18} /> Notifications
           </Link>

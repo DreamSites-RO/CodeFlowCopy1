@@ -23,7 +23,7 @@ function UserCard({ user, isConnection }) {
         </p>
       </div>
 
-      <button className="bg-primary text-white text-sm font-medium px-4 py-2 rounded-md hover:bg-primary-dark transition-colors">
+      <button className="py-2 px-4 rounded-[10px] border-2 border-green-500 text-green-500 bg-green-500 bg-opacity-10 text-sm font-bold font-poppins cursor-default transition-all duration-300 hover:bg-opacity-20">
         {isConnection ? "Connected" : "Connect"}
       </button>
     </div>

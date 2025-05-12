@@ -44,7 +44,7 @@ const LoginPage = () => {
               sequence={[
                 "Welcome back to",
                 1000,
-                "Welcome back to DreamFlow.",
+                "Welcome back to CodeFlow.",
                 1000,
               ]}
               speed={50}
@@ -63,7 +63,7 @@ const LoginPage = () => {
             <img
               className="mx-auto h-10 w-auto mb-10"
               src="/logo.svg"
-              alt="DreamFlow"
+              alt="CodeFlow"
             />
 
             <LoginForm />

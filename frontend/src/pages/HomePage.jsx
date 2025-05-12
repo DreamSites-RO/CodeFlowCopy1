@@ -105,8 +105,8 @@ const HomePage = () => {
                 {/* Image */}
                 <div className="relative">
                   <img
-                    src="/htmlbanner.jpg"
-                    alt="Course banner"
+                    src="/reactbanner.jpg"
+                    alt="Course Banner"
                     className="w-full h-40 object-cover"
                   />
                 </div>
@@ -116,13 +116,14 @@ const HomePage = () => {
                   <p className="text-xs uppercase tracking-wider text-gray-400">
                     Course
                   </p>
-                  <h3 className="text-xl font-bold text-white mt-1">HTML</h3>
+                  <h3 className="text-xl font-bold text-white mt-1">React</h3>
 
                   {/* Creative Progress */}
                   <div className="mt-4 flex items-center">
                     <span className="flex items-center gap-2 bg-gray-700 text-gray-400 text-xs font-bold px-3 py-1 rounded-full">
                       <span className="w-2 h-2 bg-gray-400 rounded-full"></span>
-                      BEGGINER
+                      <span className="w-2 h-2 bg-gray-400 rounded-full"></span>
+                      INTERMEDIATE
                     </span>
                   </div>
                 </div>
@@ -133,7 +134,7 @@ const HomePage = () => {
                 <div className="relative">
                   <img
                     src="/javascriptbanner.jpg"
-                    alt="Course banner"
+                    alt="Course Banner"
                     className="w-full h-40 object-cover"
                   />
                 </div>

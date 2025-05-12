@@ -103,6 +103,14 @@ const Post = ({ post }) => {
     }
   };
 
+  const handleSharePost = () => {
+    const postUrl = `${window.location.origin}/post/${post._id}`;
+    navigator.clipboard
+      .writeText(postUrl)
+      .then(() => toast.success("Post link copied to clipboard"))
+      .catch(() => toast.error("Failed to copy link"));
+  };
+
   return (
     <div className="bg-[#0F111A] rounded-lg shadow mb-4 text-text-gray border-2 border-gray-700 transition-all duration-300">
       <div className="p-4">
@@ -167,7 +175,11 @@ const Post = ({ post }) => {
             text={`Comment (${comments.length})`}
             onClick={() => setShowComments(!showComments)}
           />
-          <PostAction icon={<Share2 size={18} />} text="Share" />
+          <PostAction
+            icon={<Share2 size={18} />}
+            text="Share"
+            onClick={handleSharePost}
+          />
         </div>
       </div>
 

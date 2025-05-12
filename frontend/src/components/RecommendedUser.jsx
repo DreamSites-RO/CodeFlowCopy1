@@ -77,29 +77,30 @@ const RecommendedUser = ({ user }) => {
       case "pending":
         return (
           <button
-            className="flex items-center py-1.5 px-3 rounded-md bg-yellow-500 text-white text-xs"
+            className="flex items-center py-1.5 px-3 rounded-[10px] border-2 border-blue-400 text-blue-400 bg-blue-400 bg-opacity-10 text-xs font-bold font-poppins transition-all duration-300 cursor-not-allowed"
             disabled
           >
             <Clock size={14} className="mr-2" />
             Pending
           </button>
         );
+
       case "received":
         return (
           <div className="flex gap-2">
             <button
               onClick={() => acceptRequest(connectionStatus.data.requestId)}
-              className="flex items-center py-1.5 px-3 rounded-md bg-green-600 hover:bg-green-700 text-white text-xs transition-colors"
+              className="w-8 h-8 flex items-center justify-center rounded-full border-2 border-green-500 bg-green-500 bg-opacity-10 text-green-500 hover:bg-opacity-20 transition-all"
+              title="Accept"
             >
-              <Check size={14} className="mr-2" />
-              Accept
+              <Check size={16} />
             </button>
             <button
               onClick={() => rejectRequest(connectionStatus.data.requestId)}
-              className="flex items-center py-1.5 px-3 rounded-md bg-red-500 hover:bg-red-600 text-white text-xs transition-colors"
+              className="w-8 h-8 flex items-center justify-center rounded-full border-2 border-red-500 bg-red-500 bg-opacity-10 text-red-500 hover:bg-opacity-20 transition-all"
+              title="Reject"
             >
-              <X size={14} className="mr-2" />
-              Reject
+              <X size={16} />
             </button>
           </div>
         );
@@ -117,7 +118,7 @@ const RecommendedUser = ({ user }) => {
         return (
           <button
             onClick={handleConnect}
-            className="flex items-center py-1.5 px-3 rounded-md border border-primary text-primary hover:bg-primary hover:text-white text-xs transition-colors"
+            className="flex items-center py-1.5 px-3 rounded-[10px] border-2 font-poppins font-bold text-xs transition-all duration-500 text-yellow-ok border-yellow-ok bg-yellow-ok bg-opacity-10 hover:bg-opacity-20 hover:brightness-110"
           >
             <UserPlus size={14} className="mr-2" />
             Connect

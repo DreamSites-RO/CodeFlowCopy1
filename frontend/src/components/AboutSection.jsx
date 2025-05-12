@@ -10,7 +10,7 @@ const AboutSection = ({ userData, isOwnProfile, onSave }) => {
   };
 
   return (
-    <div className="w-full mb-6 bg-[#0F111A] border-2 border-gray-700 rounded-lg overflow-hidden shadow-lg text-text-gray font-poppins hover:bg-[#0F112A] hover:bg-opacity-70 transition-all duration-500 p-6">
+    <div className="w-full mb-6 font-bold bg-[#0F111A] border-2 border-gray-700 rounded-lg overflow-hidden shadow-lg text-text-gray font-poppins hover:bg-[#0F112A] hover:bg-opacity-70 transition-all duration-500 p-6">
       <h2 className="text-xl font-bold text-white mb-4">About</h2>
 
       {isOwnProfile ? (
@@ -19,13 +19,12 @@ const AboutSection = ({ userData, isOwnProfile, onSave }) => {
             <textarea
               value={about}
               onChange={(e) => setAbout(e.target.value)}
-              className="w-full p-3 bg-gray-800 text-white border border-gray-600 rounded resize-none placeholder-gray-400"
-              rows="5"
+              className="w-full p-3 rounded-md bg-[#1a1d2e] hover:bg-[#202436] focus:bg-[#202436] focus:outline-none resize-none text-white placeholder:text-gray-500 transition-colors duration-200 min-h-[100px]"
               placeholder="Tell something about yourself..."
             />
             <button
               onClick={handleSave}
-              className="mt-3 bg-primary text-white py-2 px-4 rounded-full hover:bg-primary-dark transition duration-300"
+              className="w-auto mt-3 text-sm sm:text-base border-2 font-poppins font-bold rounded-[10px] px-6 sm:px-8 py-2 transition-all duration-500 text-yellow-ok border-yellow-ok bg-yellow-ok bg-opacity-10 hover:bg-opacity-20 hover:brightness-110"
             >
               Save
             </button>
@@ -37,7 +36,7 @@ const AboutSection = ({ userData, isOwnProfile, onSave }) => {
             </p>
             <button
               onClick={() => setIsEditing(true)}
-              className="mt-3 text-primary hover:text-primary-dark transition duration-300 font-medium"
+              className="text-sm sm:text-base font-poppins font-bold text-yellow-ok hover:text-yellow-ok transition-all duration-300"
             >
               Edit
             </button>

@@ -23,7 +23,7 @@ const SkillsSection = ({ userData, isOwnProfile, onSave }) => {
   };
 
   return (
-    <div className="w-full mb-6 bg-[#0F111A] hover:bg-[#0F112A] hover:bg-opacity-70 transition-all duration-500 border-2 border-gray-700 rounded-lg shadow-lg overflow-hidden text-white font-poppins p-6">
+    <div className="w-full mb-6 font-bold bg-[#0F111A] hover:bg-[#0F112A] hover:bg-opacity-70 transition-all duration-500 border-2 border-gray-700 rounded-lg shadow-lg overflow-hidden text-white font-poppins p-6">
       <h2 className="text-xl font-bold mb-4">Skills</h2>
 
       <div className="flex flex-wrap gap-2">
@@ -46,19 +46,19 @@ const SkillsSection = ({ userData, isOwnProfile, onSave }) => {
       </div>
 
       {isEditing && (
-        <div className="mt-4 flex">
+        <div className="mt-4 flex flex-col sm:flex-row gap-3">
           <input
             type="text"
             placeholder="New Skill"
             value={newSkill}
             onChange={(e) => setNewSkill(e.target.value)}
-            className="flex-grow p-2 bg-[#1D1F33] text-white border border-gray-600 rounded-l placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary"
+            className="w-full sm:w-auto flex-grow p-3 bg-[#1a1d2e] text-white border border-gray-700 rounded-[10px] placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-yellow-ok transition"
           />
           <button
             onClick={handleAddSkill}
-            className="bg-primary text-white px-4 rounded-r hover:bg-primary-dark transition duration-300"
+            className="text-yellow-ok border-2 border-yellow-ok bg-yellow-ok bg-opacity-10 hover:bg-opacity-20 hover:brightness-110 transition-all duration-300 py-2 px-4 rounded-[10px]"
           >
-            Add
+            Add Skill
           </button>
         </div>
       )}
@@ -66,16 +66,18 @@ const SkillsSection = ({ userData, isOwnProfile, onSave }) => {
       {isOwnProfile && (
         <div className="mt-6">
           {isEditing ? (
-            <button
-              onClick={handleSave}
-              className="w-full bg-primary text-white py-2 px-4 rounded-full hover:bg-primary-dark transition duration-300"
-            >
-              Save Changes
-            </button>
+            <div className="flex flex-col sm:flex-row justify-between gap-3">
+              <button
+                onClick={handleSave}
+                className="text-yellow-ok border-2 border-yellow-ok bg-yellow-ok bg-opacity-10 hover:bg-opacity-20 hover:brightness-110 transition-all duration-300 py-2 px-4 rounded-[10px]"
+              >
+                Save Changes
+              </button>
+            </div>
           ) : (
             <button
               onClick={() => setIsEditing(true)}
-              className="text-primary hover:text-primary-dark transition duration-300"
+              className="text-yellow-ok hover:text-yellow-300 transition duration-300"
             >
               Edit Skills
             </button>

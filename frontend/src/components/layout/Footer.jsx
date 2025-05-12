@@ -229,7 +229,7 @@ const Footer = () => {
       </div>
       <div className="max-w-7xl font-poppins font-bold mx-auto text-gray-deschis text-left pb-12 px-6 lg:px-8 lg:pb-24">
         <p className="text-small lg:text-medium opacity-80 drop-shadow-2xl text-left mb-12 lg:mb-0">
-          © 2024 DreamSites. All rights reserved.
+          © 2024 CodeFlow. All rights reserved.
         </p>
       </div>
     </div>

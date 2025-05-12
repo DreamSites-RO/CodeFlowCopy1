@@ -37,7 +37,7 @@ const EducationSection = ({ userData, isOwnProfile, onSave }) => {
   };
 
   return (
-    <div className="w-full mb-6 bg-[#0F111A] border-2 border-gray-700 rounded-lg overflow-hidden shadow-lg text-text-gray font-poppins hover:bg-[#0F112A] hover:bg-opacity-70 transition-all duration-500 p-6">
+    <div className="w-full mb-6 font-bold bg-[#0F111A] border-2 border-gray-700 rounded-lg overflow-hidden shadow-lg text-text-gray font-poppins hover:bg-[#0F112A] hover:bg-opacity-70 transition-all duration-500 p-6">
       <h2 className="text-xl font-bold text-white mb-4">Education</h2>
 
       {educations.map((edu) => (
@@ -72,7 +72,7 @@ const EducationSection = ({ userData, isOwnProfile, onSave }) => {
             onChange={(e) =>
               setNewEducation({ ...newEducation, school: e.target.value })
             }
-            className="w-full p-2 bg-gray-800 text-white border border-gray-600 rounded placeholder-gray-400"
+            className="w-full p-3 bg-[#1a1d2e] text-white border border-gray-700 rounded-[10px] placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-yellow-ok transition"
           />
           <input
             type="text"
@@ -81,7 +81,7 @@ const EducationSection = ({ userData, isOwnProfile, onSave }) => {
             onChange={(e) =>
               setNewEducation({ ...newEducation, fieldOfStudy: e.target.value })
             }
-            className="w-full p-2 bg-gray-800 text-white border border-gray-600 rounded placeholder-gray-400"
+            className="w-full p-3 bg-[#1a1d2e] text-white border border-gray-700 rounded-[10px] placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-yellow-ok transition"
           />
           <input
             type="number"
@@ -90,7 +90,7 @@ const EducationSection = ({ userData, isOwnProfile, onSave }) => {
             onChange={(e) =>
               setNewEducation({ ...newEducation, startYear: e.target.value })
             }
-            className="w-full p-2 bg-gray-800 text-white border border-gray-600 rounded placeholder-gray-400"
+            className="w-full p-3 bg-[#1a1d2e] text-white border border-gray-700 rounded-[10px] placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-yellow-ok transition"
           />
           <input
             type="number"
@@ -99,35 +99,34 @@ const EducationSection = ({ userData, isOwnProfile, onSave }) => {
             onChange={(e) =>
               setNewEducation({ ...newEducation, endYear: e.target.value })
             }
-            className="w-full p-2 bg-gray-800 text-white border border-gray-600 rounded placeholder-gray-400"
+            className="w-full p-3 bg-[#1a1d2e] text-white border border-gray-700 rounded-[10px] placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-yellow-ok transition"
           />
 
-          <button
-            onClick={handleAddEducation}
-            className="bg-primary text-white py-2 px-4 rounded-full hover:bg-primary-dark transition duration-300"
-          >
-            Add Education
-          </button>
-        </div>
-      )}
-
-      {isOwnProfile && (
-        <div className="mt-6">
-          {isEditing ? (
+          <div className="flex flex-col sm:flex-row justify-between gap-3 pt-2">
+            <button
+              onClick={handleAddEducation}
+              className="text-yellow-ok border-2 border-yellow-ok bg-yellow-ok bg-opacity-10 hover:bg-opacity-20 hover:brightness-110 transition-all duration-300 py-2 px-4 rounded-[10px]"
+            >
+              Add Education
+            </button>
             <button
               onClick={handleSave}
-              className="w-full bg-primary text-white py-2 px-4 rounded-full hover:bg-primary-dark transition duration-300"
+              className="text-yellow-ok border-2 border-yellow-ok bg-yellow-ok bg-opacity-10 hover:bg-opacity-20 hover:brightness-110 transition-all duration-300 py-2 px-4 rounded-[10px]"
             >
               Save Changes
             </button>
-          ) : (
-            <button
-              onClick={() => setIsEditing(true)}
-              className="text-primary hover:text-primary-dark transition duration-300"
-            >
-              Edit Education
-            </button>
-          )}
+          </div>
+        </div>
+      )}
+
+      {isOwnProfile && !isEditing && (
+        <div className="mt-6">
+          <button
+            onClick={() => setIsEditing(true)}
+            className="text-yellow-ok hover:text-yellow-300 transition duration-300"
+          >
+            Edit Education
+          </button>
         </div>
       )}
     </div>

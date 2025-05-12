@@ -106,62 +106,61 @@ const ProfileHeader = ({ userData, onSave, isOwnProfile }) => {
     setIsEditing(false);
   };
 
-  const baseButtonClass =
-    "text-white py-2 px-4 rounded-full transition duration-300 flex items-center justify-center";
-
   const renderConnectionButton = () => {
     switch (getConnectionStatus) {
       case "connected":
         return (
-          <div className="flex gap-2 justify-center">
-            <div
-              className={`${baseButtonClass} bg-green-600 hover:bg-green-700`}
-            >
-              <UserCheck size={20} className="mr-2" />
+          <div className="flex gap-3 justify-center">
+            {/* Connected Button */}
+            <div className="py-1.5 px-3.5 rounded-[10px] border-2 border-green-500 text-green-500 bg-green-500 bg-opacity-10 text-sm font-bold font-poppins cursor-default transition-all duration-300 hover:bg-opacity-20 flex items-center justify-center gap-2">
+              <UserCheck size={20} />
               Connected
             </div>
+
+            {/* Remove Button */}
             <button
-              className={`${baseButtonClass} bg-red-600 hover:bg-red-700`}
               onClick={() => removeConnection(userData._id)}
+              className="py-1.5 px-3.5 rounded-[10px] border-2 border-red-500 text-red-500 bg-red-500 bg-opacity-10 text-sm font-bold font-poppins cursor-pointer transition-all duration-300 hover:bg-opacity-20 flex items-center justify-center gap-2"
             >
-              <X size={20} className="mr-2" />
+              <X size={20} />
               Remove
             </button>
           </div>
         );
+
       case "pending":
         return (
-          <button
-            className={`${baseButtonClass} bg-yellow-500 hover:bg-yellow-600`}
-          >
-            <Clock size={20} className="mr-2" />
+          <div className="py-1.5 px-3.5 rounded-[10px] border-2 border-yellow-500 text-yellow-500 bg-yellow-500 bg-opacity-10 text-sm font-bold font-poppins cursor-default transition-all duration-300 hover:bg-opacity-20 flex items-center justify-center gap-2">
+            <Clock size={20} />
             Pending
-          </button>
+          </div>
         );
+
       case "received":
         return (
-          <div className="flex gap-2 justify-center">
+          <div className="flex gap-3 justify-center">
             <button
               onClick={() => acceptRequest(connectionStatus.data.requestId)}
-              className={`${baseButtonClass} bg-green-600 hover:bg-green-700`}
+              className="py-1.5 px-3.5 rounded-[10px] border-2 border-green-500 text-green-500 bg-green-500 bg-opacity-10 text-sm font-bold font-poppins cursor-pointer transition-all duration-300 hover:bg-opacity-20 flex items-center justify-center gap-2"
             >
               Accept
             </button>
             <button
               onClick={() => rejectRequest(connectionStatus.data.requestId)}
-              className={`${baseButtonClass} bg-red-600 hover:bg-red-700`}
+              className="py-1.5 px-3.5 rounded-[10px] border-2 border-red-500 text-red-500 bg-red-500 bg-opacity-10 text-sm font-bold font-poppins cursor-pointer transition-all duration-300 hover:bg-opacity-20 flex items-center justify-center gap-2"
             >
               Reject
             </button>
           </div>
         );
+
       default:
         return (
           <button
             onClick={() => sendConnectionRequest(userData._id)}
-            className="bg-primary hover:bg-primary-dark text-white py-2 px-4 rounded-full transition duration-300 flex items-center justify-center"
+            className="py-1.5 px-3.5 rounded-[10px] border-2 border-primary text-primary bg-primary bg-opacity-10 text-sm font-bold font-poppins cursor-pointer transition-all duration-300 hover:bg-opacity-20 flex items-center justify-center gap-2"
           >
-            <UserPlus size={20} className="mr-2" />
+            <UserPlus size={20} />
             Connect
           </button>
         );
@@ -265,7 +264,7 @@ const ProfileHeader = ({ userData, onSave, isOwnProfile }) => {
           {isOwnProfile ? (
             isEditing ? (
               <button
-                className="w-full bg-primary text-white py-2 px-4 rounded-full hover:bg-primary-dark transition duration-300"
+                className="text-sm sm:text-base border-2 font-poppins font-bold rounded-[10px] px-6 sm:px-8 py-2 transition-all duration-500 text-yellow-ok border-yellow-ok bg-yellow-ok bg-opacity-10 hover:bg-opacity-20 hover:brightness-110"
                 onClick={handleSave}
               >
                 Save Profile
@@ -273,7 +272,7 @@ const ProfileHeader = ({ userData, onSave, isOwnProfile }) => {
             ) : (
               <button
                 onClick={() => setIsEditing(true)}
-                className="w-full bg-primary text-white py-2 px-4 rounded-full hover:bg-primary-dark transition duration-300"
+                className="text-sm sm:text-base border-2 font-poppins font-bold rounded-[10px] px-6 sm:px-8 py-2 transition-all duration-500 text-yellow-ok border-yellow-ok bg-yellow-ok bg-opacity-10 hover:bg-opacity-20 hover:brightness-110"
               >
                 Edit Profile
               </button>
