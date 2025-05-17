@@ -4,14 +4,14 @@ import toast from "react-hot-toast";
 
 import { axiosInstance } from "../lib/axios";
 
-import ExperienceSection from "../components/ExperienceSection";
-import EducationSection from "../components/EducationSection";
-import ProfileHeader from "../components/ProfileHeader";
-import SkillsSection from "../components/SkillsSection";
-import AboutSection from "../components/AboutSection";
+import ExperienceSectionRo from "../components/ExperienceSectionRo";
+import EducationSectionRo from "../components/EducationSectionRo";
+import ProfileHeaderRo from "../components/ProfileHeaderRo";
+import SkillsSectionRo from "../components/SkillsSectionRo";
+import AboutSectionRo from "../components/AboutSectionRo";
 
-import Footer from "../components/layout/Footer";
-import NavBar from "../components/layout/Navbar";
+import FooterRo from "../components/layout/FooterRo";
+import NavbarRo from "../components/layout/NavbarRo";
 
 const ProfilePage = () => {
   const { username } = useParams();
@@ -48,36 +48,36 @@ const ProfilePage = () => {
 
   return (
     <>
-      <NavBar />
+      <NavbarRo />
 
       <div className="max-w-4xl mx-auto p-4">
-        <ProfileHeader
+        <ProfileHeaderRo
           userData={userData}
           isOwnProfile={isOwnProfile}
           onSave={handleSave}
         />
-        <AboutSection
+        <AboutSectionRo
           userData={userData}
           isOwnProfile={isOwnProfile}
           onSave={handleSave}
         />
-        <ExperienceSection
+        <ExperienceSectionRo
           userData={userData}
           isOwnProfile={isOwnProfile}
           onSave={handleSave}
         />
-        <EducationSection
+        <EducationSectionRo
           userData={userData}
           isOwnProfile={isOwnProfile}
           onSave={handleSave}
         />
-        <SkillsSection
+        <SkillsSectionRo
           userData={userData}
           isOwnProfile={isOwnProfile}
           onSave={handleSave}
         />
       </div>
-      <Footer />
+      <FooterRo />
     </>
   );
 };

@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 import { motion } from "framer-motion";
 
-import Footer from "../../components/layout/Footer";
-import NavBar from "../../components/layout/Navbar";
+import FooterRo from "../../components/layout/FooterRo";
+import NavbarRo from "../../components/layout/NavbarRo";
 
 import HTMLBegginers from "../../pdfs/HTMLBegginers.pdf";
 
@@ -37,37 +37,38 @@ const animationVariants = {
 const questionsByLevel = {
   Beginner: [
     {
-      question: "What does HTML stand for?",
+      question: "Ce înseamnă HTML?",
       options: [
-        "Hyper Text Markup Language",
-        "Home Tool Markup Language",
-        "Hyperlinks and Text Markup Language",
-        "Hyperlinking Text Management Language",
+        "Limbaj de Marcare a Textului Hipertext",
+        "Limbaj de Marcare a Instrumentelor pentru Acasă",
+        "Limbaj de Marcare a Hiperlinkurilor și Textului",
+        "Limbaj de Management al Textelor Hiperlinkate",
       ],
       correctIndex: 0,
     },
     {
-      question: "Which tag is used to define a paragraph in HTML?",
+      question: "Ce tag este utilizat pentru a defini un paragraf în HTML?",
       options: ["<para>", "<p>", "<paragraph>", "<pg>"],
       correctIndex: 1,
     },
     {
-      question: "Which tag creates the largest heading in HTML?",
+      question: "Care tag creează cel mai mare titlu în HTML?",
       options: ["<h6>", "<h1>", "<header>", "<head>"],
       correctIndex: 1,
     },
     {
-      question: "What is the correct HTML element for inserting a line break?",
+      question:
+        "Care este tag-ul corect pentru a insera o ruptură de linie în HTML?",
       options: ["<br>", "<break>", "<lb>", "<newline>"],
       correctIndex: 0,
     },
     {
-      question: "Which tag is used to define a hyperlink in HTML?",
+      question: "Ce tag este utilizat pentru a defini un hyperlink în HTML?",
       options: ["<link>", "<a>", "<href>", "<hyper>"],
       correctIndex: 1,
     },
     {
-      question: "What is the correct HTML tag for inserting an image?",
+      question: "Care este tag-ul corect pentru a insera o imagine?",
       options: [
         '<img src="image.jpg">',
         '<image href="image.jpg">',
@@ -77,47 +78,50 @@ const questionsByLevel = {
       correctIndex: 0,
     },
     {
-      question: "Which tag is used to define a table row in HTML?",
+      question:
+        "Ce tag este utilizat pentru a defini un rând într-un tabel HTML?",
       options: ["<tr>", "<td>", "<table>", "<th>"],
       correctIndex: 0,
     },
     {
-      question: "Which tag is used to define a table cell in HTML?",
+      question:
+        "Ce tag este utilizat pentru a defini o celulă într-un tabel HTML?",
       options: ["<td>", "<tr>", "<th>", "<cell>"],
       correctIndex: 0,
     },
     {
-      question: "Which attribute specifies an image's alternate text?",
+      question: "Care atribut specifică textul alternativ al unei imagini?",
       options: ["alt", "src", "title", "description"],
       correctIndex: 0,
     },
     {
-      question: "What tag is used for unordered lists?",
+      question: "Ce tag este utilizat pentru liste neordonate?",
       options: ["<ul>", "<ol>", "<list>", "<li>"],
       correctIndex: 0,
     },
     {
-      question: "Which tag is used for list items?",
+      question: "Ce tag este utilizat pentru elementele dintr-o listă?",
       options: ["<item>", "<li>", "<ul>", "<list>"],
       correctIndex: 1,
     },
     {
-      question: "Which HTML element represents emphasized text?",
+      question: "Ce element HTML reprezintă textul evidențiat?",
       options: ["<b>", "<em>", "<strong>", "<italic>"],
       correctIndex: 1,
     },
     {
-      question: "Which HTML element makes text bold?",
+      question: "Care element HTML face textul îngroșat?",
       options: ["<bold>", "<strong>", "<em>", "<b>"],
       correctIndex: 3,
     },
     {
-      question: "What tag is used for the main content of an HTML document?",
+      question:
+        "Ce tag este utilizat pentru conținutul principal al unui document HTML?",
       options: ["<main>", "<body>", "<content>", "<section>"],
       correctIndex: 0,
     },
     {
-      question: "Which tag is used for inserting a horizontal line?",
+      question: "Ce tag este utilizat pentru a insera o linie orizontală?",
       options: ["<line>", "<hr>", "<br>", "<horizontal>"],
       correctIndex: 1,
     },
@@ -125,97 +129,100 @@ const questionsByLevel = {
 
   Intermediate: [
     {
-      question: "Which HTML tag is used to define a caption for a table?",
+      question:
+        "Ce tag HTML este utilizat pentru a defini o legendă pentru un tabel?",
       options: ["<caption>", "<tablecaption>", "<title>", "<head>"],
       correctIndex: 0,
     },
     {
-      question: "Which tag is used to group rows in a table header?",
+      question:
+        "Ce tag este utilizat pentru a grupa rândurile într-un antet de tabel?",
       options: ["<thead>", "<head>", "<thgroup>", "<tr>"],
       correctIndex: 0,
     },
     {
-      question: "What does the <form> tag do?",
+      question: "Ce face tag-ul <form>?",
       options: [
-        "Links to another page",
-        "Creates a table",
-        "Creates an input form",
-        "Displays formatted text",
+        "Leagă la o altă pagină",
+        "Creează un tabel",
+        "Creează un formular de input",
+        "Afișează text formatat",
       ],
       correctIndex: 2,
     },
     {
-      question: "Which input type is used for a checkbox?",
+      question: "Ce tip de input este utilizat pentru o casetă de selectare?",
       options: ["text", "checkbox", "radio", "option"],
       correctIndex: 1,
     },
     {
-      question: "Which tag is used to embed a video?",
+      question: "Ce tag este utilizat pentru a încorpora un videoclip?",
       options: ["<video>", "<media>", "<movie>", "<embed>"],
       correctIndex: 0,
     },
     {
-      question: "Which tag adds a label for a form input?",
+      question: "Ce tag adaugă o etichetă pentru un input de formular?",
       options: ["<label>", "<formlabel>", "<caption>", "<span>"],
       correctIndex: 0,
     },
     {
-      question: "What does the 'action' attribute in <form> specify?",
+      question: "Ce specifică atributul 'action' în tag-ul <form>?",
       options: [
-        "Form method",
-        "Form type",
-        "URL to submit the form data",
-        "Validation type",
+        "Metoda formularului",
+        "Tipul formularului",
+        "URL-ul pentru a trimite datele formularului",
+        "Tipul de validare",
       ],
       correctIndex: 2,
     },
     {
-      question: "Which tag is used to include JavaScript in HTML?",
+      question: "Ce tag este utilizat pentru a include JavaScript în HTML?",
       options: ["<script>", "<js>", "<javascript>", "<code>"],
       correctIndex: 0,
     },
     {
-      question: "What does the 'method' attribute in a form define?",
+      question: "Ce definește atributul 'method' într-un formular?",
       options: [
-        "Input format",
-        "Form action",
-        "Submit type",
-        "HTTP request type",
+        "Formatul inputului",
+        "Acțiunea formularului",
+        "Tipul de trimitere",
+        "Tipul cererii HTTP",
       ],
       correctIndex: 3,
     },
     {
-      question: "Which tag is used to create a drop-down list?",
+      question: "Ce tag este utilizat pentru a crea o listă derulantă?",
       options: ["<select>", "<dropdown>", "<list>", "<options>"],
       correctIndex: 0,
     },
     {
-      question: "Which HTML attribute is used to define inline styles?",
+      question:
+        "Care atribut HTML este utilizat pentru a defini stiluri inline?",
       options: ["css", "style", "class", "styles"],
       correctIndex: 1,
     },
     {
-      question: "How do you make a text input required?",
+      question: "Cum faci un input de text obligatoriu?",
       options: ['required="true"', "input-required", "required", 'must="true"'],
       correctIndex: 2,
     },
     {
-      question: "What is the correct tag for a navigation section?",
+      question: "Care este tag-ul corect pentru o secțiune de navigare?",
       options: ["<nav>", "<navigate>", "<navbar>", "<menu>"],
       correctIndex: 0,
     },
     {
-      question: "Which tag is used to add a line break?",
+      question: "Ce tag este utilizat pentru a adăuga o ruptură de linie?",
       options: ["<lb>", "<br>", "<break>", "<newline>"],
       correctIndex: 1,
     },
     {
-      question: "What does <fieldset> do in a form?",
+      question: "Ce face <fieldset> într-un formular?",
       options: [
-        "Creates a text box",
-        "Groups related elements",
-        "Adds an image",
-        "Adds a video player",
+        "Creează o casetă de text",
+        "Grupază elemente legate",
+        "Adaugă o imagine",
+        "Adaugă un player video",
       ],
       correctIndex: 1,
     },
@@ -223,112 +230,113 @@ const questionsByLevel = {
 
   Advanced: [
     {
-      question: "What does the 'defer' attribute do in a script tag?",
+      question: "Ce face atributul 'defer' într-un tag <script>?",
       options: [
-        "Delays script execution until HTML parsing is complete",
-        "Stops script execution",
-        "Only works with async",
-        "Used for inline scripts",
+        "Întârzie execuția scriptului până ce analiza HTML este completă",
+        "Opresc execuția scriptului",
+        "Funcționează doar cu async",
+        "Se utilizează pentru scripturi inline",
       ],
       correctIndex: 0,
     },
     {
-      question: "What does the 'async' attribute do in a script tag?",
+      question: "Ce face atributul 'async' într-un tag <script>?",
       options: [
-        "Loads script in order",
-        "Executes script after DOM is ready",
-        "Executes script as soon as it is downloaded",
-        "Ignores the script",
+        "Încarcă scriptul în ordine",
+        "Execuția scriptului începe după ce DOM-ul este gata",
+        "Execuția scriptului începe imediat ce este descărcat",
+        "Ignoră scriptul",
       ],
       correctIndex: 2,
     },
     {
-      question: "What is the purpose of the <template> tag?",
+      question: "Care este scopul tag-ului <template>?",
       options: [
-        "To define reusable templates",
-        "To store JavaScript code",
-        "To define inline CSS",
-        "To group table rows",
+        "Definirea de template-uri reutilizabile",
+        "Stocarea codului JavaScript",
+        "Definirea CSS-ului inline",
+        "Gruparea rândurilor unui tabel",
       ],
       correctIndex: 0,
     },
     {
-      question: "Which tag is used for scalable vector graphics?",
+      question: "Ce tag este utilizat pentru grafica vectorială scalabilă?",
       options: ["<svg>", "<canvas>", "<graphics>", "<draw>"],
       correctIndex: 0,
     },
     {
-      question: "What is the purpose of the <canvas> tag?",
+      question: "Care este scopul tag-ului <canvas>?",
       options: [
-        "Render dynamic bitmap graphics",
-        "Create tables",
-        "Render SVG",
-        "Create forms",
+        "Redă grafică bitmap dinamică",
+        "Creează tabele",
+        "Redă SVG",
+        "Creează formulare",
       ],
       correctIndex: 0,
     },
     {
-      question: "What attribute do you use to make a field readonly?",
+      question: "Ce atribut folosești pentru a face un câmp readonly?",
       options: ["readonly", "disabled", "no-edit", "fixed"],
       correctIndex: 0,
     },
     {
-      question: "What is the difference between <section> and <div>?",
+      question: "Care este diferența dintre <section> și <div>?",
       options: [
-        "<section> has semantic meaning",
-        "No difference",
-        "<div> is only for headers",
-        "<section> is deprecated",
+        "<section> are semnificație semantică",
+        "Nicio diferență",
+        "<div> este doar pentru anteturi",
+        "<section> este depreciat",
       ],
       correctIndex: 0,
     },
     {
-      question: "Which element is used to embed external web pages?",
+      question: "Ce element este utilizat pentru a încorpora pagini externe?",
       options: ["<iframe>", "<embed>", "<frame>", "<object>"],
       correctIndex: 0,
     },
     {
-      question: "What tag defines metadata about an HTML document?",
+      question: "Ce tag definește metadatele unui document HTML?",
       options: ["<meta>", "<head>", "<data>", "<info>"],
       correctIndex: 0,
     },
     {
-      question: "What is the default method for form submission?",
+      question: "Care este metoda implicită pentru trimiterea unui formular?",
       options: ["POST", "GET", "PUT", "SUBMIT"],
       correctIndex: 1,
     },
     {
-      question: "Which attribute specifies a short hint for input fields?",
+      question:
+        "Care atribut specifică un indiciu scurt pentru câmpurile de input?",
       options: ["placeholder", "title", "hint", "alt"],
       correctIndex: 0,
     },
     {
-      question: "What does the <output> element do?",
+      question: "Ce face elementul <output>?",
       options: [
-        "Displays the result of a calculation",
-        "Creates console logs",
-        "Outputs a variable",
-        "Stores debug info",
+        "Afișează rezultatul unei calcule",
+        "Creează loguri de consolă",
+        "Iesă o variabilă",
+        "Stochează informații de depanare",
       ],
       correctIndex: 0,
     },
     {
-      question: "How do you group inline elements together semantically?",
+      question: "Cum grupezi elementele inline semnificativ?",
       options: ["<span>", "<group>", "<inline>", "<div>"],
       correctIndex: 0,
     },
     {
-      question: "Which tag would you use to mark up a dialog box?",
+      question: "Ce tag ai folosi pentru a marca o fereastră de dialog?",
       options: ["<dialog>", "<box>", "<modal>", "<popup>"],
       correctIndex: 0,
     },
     {
-      question: "What does the 'contenteditable' attribute do?",
+      question: "Ce face atributul 'contenteditable'?",
       options: [
-        "Allows the user to edit the content",
-        "Disables user editing",
-        "Adds a content summary",
-        "Makes content hidden",
+        "Permite utilizatorului să editeze conținutul",
+        "Dezactivează editarea de către utilizator",
+        "Adaugă un rezumat de conținut",
+        "Face conținutul ascuns",
       ],
       correctIndex: 0,
     },
@@ -379,7 +387,7 @@ const LearnHTMLPage = () => {
 
   return (
     <>
-      <NavBar />
+      <NavbarRo />
 
       {/* Hero section  */}
       <div
@@ -399,11 +407,11 @@ const LearnHTMLPage = () => {
               >
                 <span className="flex items-center gap-2 bg-gray-700 text-white text-xs font-bold px-3 py-1 rounded-full">
                   <span className="w-2 h-2 bg-gray-400 rounded-full"></span>
-                  BEGINNER
+                  Incepator
                 </span>
                 <div className="flex items-center justify-center">
                   <p className="uppercase tracking-wider text-xs text-gray-deschis">
-                    Course
+                    Curs
                   </p>
                 </div>
               </motion.div>
@@ -423,8 +431,8 @@ const LearnHTMLPage = () => {
                 animate="visible"
                 custom={2}
               >
-                Learn the fundamentals of web development, including structure
-                and semantic markup with the basics of HTML.
+                Învață elementele fundamentale ale dezvoltării web, inclusiv
+                structura și marcarea semantică cu bazele HTML.
               </motion.p>
               <motion.div
                 variants={fadeUpVariant}
@@ -434,7 +442,7 @@ const LearnHTMLPage = () => {
               >
                 <a href={HTMLBegginers} target="_blank">
                   <button className="font-semibold text-sm sm:text-base border-2 rounded-[10px] text-yellow-ok border-yellow-ok bg-yellow-ok bg-opacity-10 hover:bg-opacity-20 font-pixel px-6 sm:px-8 py-2 sm:py-3 transition-colors duration-500">
-                    Start Learning
+                    Începe să înveți
                   </button>
                 </a>
               </motion.div>
@@ -453,7 +461,7 @@ const LearnHTMLPage = () => {
           viewport={{ once: true }}
         >
           <h1 className="flex flex-row items-center gap-2 text-base sm:text-lg md:text-xl drop-shadow-2xl text-gray-deschis font-pixel leading-snug">
-            Test your knowledge
+            Testează-ți cunoștințele
           </h1>
         </motion.div>
       </div>
@@ -464,19 +472,19 @@ const LearnHTMLPage = () => {
           {showScore ? (
             <div className="flex flex-col items-center gap-6">
               <div className="text-white text-xl font-bold text-center">
-                You scored {score} out of {currentQuestions.length}!
+                Ai obținut {score} din {currentQuestions.length}!
               </div>
               <button
                 onClick={handleReset}
                 className="bg-yellow-ok text-black px-6 py-2 rounded-md font-bold hover:bg-yellow-400 transition-all duration-300"
               >
-                Try Again
+                Încearcă din nou!
               </button>
             </div>
           ) : (
             <>
               <h2 className="text-2xl font-bold text-white mb-4">
-                Question {currentIndex + 1} of {currentQuestions.length}
+                Întrebarea {currentIndex + 1} din {currentQuestions.length}
               </h2>
               <p className="text-lg text-text-gray mb-6">
                 {currentQuestion.question}
@@ -526,8 +534,8 @@ const LearnHTMLPage = () => {
 
           <div className="mt-6 w-full font-poppins mx-auto bg-[#0F111A] hover:bg-[#0F112A] hover:bg-opacity-70 transition-all duration-500 border-2 border-gray-700 rounded-lg shadow-lg font-poppins text-text-gray font-semibolds text-sm p-4">
             <p>
-              Test your HTML knowledge with quick quizzes based on your level.
-              Choose a level and start answering!
+              Testează-ți cunoștințele de HTML cu quizuri rapide bazate pe
+              nivelul tău. Alege un nivel și începe să răspunzi!
             </p>
           </div>
         </div>
@@ -542,7 +550,7 @@ const LearnHTMLPage = () => {
           viewport={{ once: true }}
         >
           <h1 className="flex flex-row items-center gap-2 text-base sm:text-lg md:text-xl drop-shadow-2xl text-gray-deschis font-pixel mb-4 leading-snug">
-            Explore More
+            Exploreaza mai mult
           </h1>
         </motion.div>
 
@@ -559,17 +567,17 @@ const LearnHTMLPage = () => {
               </div>
               <div className="p-4">
                 <p className="text-small text-gray-deschis uppercase tracking-wide">
-                  Course
+                  Curs
                 </p>
                 <h2 className="text-xl font-bold">HTML</h2>
                 <p className="text-text-gray text-sm mt-2">
-                  Learn the fundamentals of web development, including structure
-                  and semantic markup with the...
+                  Învață elementele fundamentale ale dezvoltării web, inclusiv
+                  structura și marcarea semantică cu...
                 </p>
                 <div className="mt-4 flex items-center">
                   <span className="flex items-center gap-2 bg-gray-700 text-gray-200 text-xs font-bold px-3 py-1 rounded-full">
                     <span className="w-2 h-2 bg-gray-400 rounded-full"></span>
-                    BEGINNER
+                    INCEPATOR
                   </span>
                 </div>
               </div>
@@ -587,17 +595,17 @@ const LearnHTMLPage = () => {
             </div>
             <div className="p-4">
               <p className="text-small text-gray-deschis uppercase tracking-wide">
-                Course
+                Curs
               </p>
               <h2 className="text-xl font-bold">CSS</h2>
               <p className="text-text-gray text-sm mt-2">
-                Master the fundamentals of styling, including colors, layouts,
-                and responsive design with the...
+                Stăpânește elementele fundamentale ale stilizării, inclusiv
+                culorile, layout-urile și designul responsiv cu...
               </p>
               <div className="mt-4 flex items-center">
                 <span className="flex items-center gap-2 bg-gray-700 text-gray-200 text-xs font-bold px-3 py-1 rounded-full">
                   <span className="w-2 h-2 bg-gray-400 rounded-full"></span>
-                  BEGINNER
+                  Incepator
                 </span>
               </div>
             </div>
@@ -614,17 +622,17 @@ const LearnHTMLPage = () => {
             </div>
             <div className="p-4">
               <p className="text-small text-gray-deschis uppercase tracking-wide">
-                Course
+                Curs
               </p>
               <h2 className="text-xl font-bold">JavaScript</h2>
               <p className="text-text-gray text-sm mt-2">
-                Learn the fundamentals of JavaScript, including variables,
-                functions, and event handling with the...
+                Învață elementele fundamentale ale JavaScript, inclusiv
+                variabile, funcții și gestionarea evenimentelor cu...
               </p>
               <div className="mt-4 flex items-center">
                 <span className="flex items-center gap-2 bg-gray-700 text-gray-200 text-xs font-bold px-3 py-1 rounded-full">
                   <span className="w-2 h-2 bg-gray-400 rounded-full"></span>
-                  BEGINNER
+                  Incepator
                 </span>
               </div>
             </div>
@@ -632,7 +640,7 @@ const LearnHTMLPage = () => {
         </div>
       </div>
 
-      <Footer />
+      <FooterRo />
     </>
   );
 };

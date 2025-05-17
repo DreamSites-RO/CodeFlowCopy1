@@ -1,10 +1,13 @@
 import React from "react";
 
 import Footer from "../components/layout/Footer";
+import NavBar from "../components/layout/Navbar";
 
 const TermsPage = () => {
   return (
     <>
+      <NavBar />
+
       <div className="w-full max-w-[800px] mx-auto my-10 px-4">
         <div className="hover:bg-[#0F112A] hover:bg-opacity-70 transition-all duration-500 bg-[#0F111A] border-2 font-poppins border-gray-700 rounded-lg text-left overflow-hidden shadow-lg text-text-gray p-6">
           <h1 className="text-3xl font-bold text-white mb-6 flex items-center gap-2 font-['Press_Start_2P']">

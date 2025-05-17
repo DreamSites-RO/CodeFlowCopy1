@@ -6,6 +6,8 @@ import { axiosInstance } from "../lib/axios";
 import Sidebar from "../components/Sidebar";
 import Post from "../components/Post";
 
+import NavBar from "../components/layout/Navbar";
+
 const PostPage = () => {
   const { postId } = useParams();
 
@@ -28,17 +30,21 @@ const PostPage = () => {
     return <div className="text-center text-red-400">Post not found</div>;
 
   return (
-    <div className="max-w-7xl min-h-screen mx-auto flex flex-col lg:flex-row gap-8 py-10 px-6 text-white">
-      {/* Sidebar: only visible on large screens */}
-      <aside className="hidden lg:block w-full max-w-[280px]">
-        <Sidebar user={authUser} />
-      </aside>
+    <>
+      <NavBar />
 
-      {/* Post Content */}
-      <main className="flex-1 w-full">
-        <Post post={post.data} />
-      </main>
-    </div>
+      <div className="max-w-7xl min-h-screen mx-auto flex flex-col lg:flex-row gap-8 py-10 px-6 text-white">
+        {/* Sidebar: only visible on large screens */}
+        <aside className="hidden lg:block w-full max-w-[280px]">
+          <Sidebar user={authUser} />
+        </aside>
+
+        {/* Post Content */}
+        <main className="flex-1 w-full">
+          <Post post={post.data} />
+        </main>
+      </div>
+    </>
   );
 };
 

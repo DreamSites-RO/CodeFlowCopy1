@@ -3,13 +3,12 @@ import { UserPlus } from "lucide-react";
 
 import { axiosInstance } from "../lib/axios";
 
-import Footer from "../components/layout/Footer";
+import FooterRo from "../components/layout/FooterRo";
+import NavBarRo from "../components/layout/NavbarRo";
 
-import FriendRequest from "../components/FriendRequest";
-import UserCard from "../components/UserCard";
-import Sidebar from "../components/Sidebar";
-
-import NavBar from "../components/layout/Navbar";
+import FriendRequestRo from "../components/FriendRequestRo";
+import UserCardRo from "../components/UserCardRo";
+import SidebarRo from "../components/SidebarRo";
 
 const NetworkPage = () => {
   const { data: user } = useQuery({
@@ -32,21 +31,22 @@ const NetworkPage = () => {
 
   return (
     <>
-      <NavBar />
-
+      <NavBarRo />
       <div className="max-w-[1440px] mx-auto px-4 py-6">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
           <div className="col-span-1">
-            <Sidebar user={user} />
+            <SidebarRo user={user} />
           </div>
           <div className="col-span-1 lg:col-span-3">
             <div className="bg-[#0F111A] rounded-lg shadow p-6 mb-6 border-2 border-gray-700 font-poppins text-text-gray">
-              <h1 className="text-2xl font-bold mb-6 text-white">My Network</h1>
+              <h1 className="text-2xl font-bold mb-6 text-white">
+                Rețeaua mea
+              </h1>
 
               {connectionRequests?.data?.length > 0 ? (
                 <div className="mb-8">
                   <h2 className="text-xl font-semibold mb-4 text-white">
-                    Connection Requests
+                    Cereri de conexiune
                   </h2>
                   <div className="space-y-4">
                     {connectionRequests.data.map((request) => (
@@ -54,7 +54,7 @@ const NetworkPage = () => {
                         key={request.id}
                         className="hover:bg-[#0F112A] hover:bg-opacity-70 transition-all duration-500 bg-[#0F111A] border-2 border-gray-700 rounded-lg shadow text-text-gray p-4"
                       >
-                        <FriendRequest request={request} />
+                        <FriendRequestRo request={request} />
                       </div>
                     ))}
                   </div>
@@ -63,14 +63,15 @@ const NetworkPage = () => {
                 <div className="bg-[#0F111A] hover:bg-[#0F112A] hover:bg-opacity-70 transition-all duration-500 border-2 border-gray-700 rounded-lg shadow p-6 text-center mb-6">
                   <UserPlus size={48} className="mx-auto text-gray-400 mb-4" />
                   <h3 className="text-xl font-semibold mb-2 text-white">
-                    No Connection Requests
+                    Nicio cerere de conexiune
                   </h3>
                   <p className="text-gray-400">
-                    You don&apos;t have any pending connection requests at the
-                    moment.
+                    Nu ai nicio cerere de conexiune în așteptare în acest
+                    moment.{" "}
                   </p>
                   <p className="text-gray-500 mt-2">
-                    Explore suggested connections below to expand your network!
+                    Explorează conexiunile sugerate mai jos pentru a-ți extinde
+                    rețeaua!
                   </p>
                 </div>
               )}
@@ -78,7 +79,7 @@ const NetworkPage = () => {
               {connections?.data?.length > 0 && (
                 <div className="mb-8">
                   <h2 className="text-xl font-semibold mb-4 text-white">
-                    My Connections
+                    Conexiunile mele
                   </h2>
                   <div className="flex flex-col gap-4">
                     {connections.data.map((connection) => (
@@ -86,7 +87,7 @@ const NetworkPage = () => {
                         key={connection._id}
                         className="hover:bg-[#0F112A] hover:bg-opacity-70 transition-all duration-500 bg-[#0F111A] border-2 border-gray-700 rounded-lg shadow p-4"
                       >
-                        <UserCard user={connection} isConnection={true} />
+                        <UserCardRo user={connection} isConnection={true} />
                       </div>
                     ))}
                   </div>
@@ -97,7 +98,7 @@ const NetworkPage = () => {
         </div>
       </div>
 
-      <Footer />
+      <FooterRo />
     </>
   );
 };

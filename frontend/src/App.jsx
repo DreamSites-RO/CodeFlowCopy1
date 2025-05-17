@@ -1,4 +1,4 @@
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, replace, Route, Routes } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import toast, { Toaster } from "react-hot-toast";
 
@@ -17,6 +17,18 @@ import PostPage from "./pages/PostPage";
 import HomePage from "./pages/HomePage";
 import LearnHTMLPage from "./pages/learnPages/LearnHTMLPage";
 import TermsPage from "./pages/TermsPage";
+
+import UnknownUserRo from "./pages/auth/UnknownUserRo";
+import SignUpRo from "./pages/auth/SignUpRo";
+import LoginPageRo from "./pages/auth/LoginPageRo";
+import HomePageRo from "./pages/HomePageRo";
+import LearnPageRo from "./pages/LearnPageRo";
+import LearnHTMLPageRo from "./pages/learnPages/LearnHTMLPageRo";
+import CommunityPageRo from "./pages/CommunityPageRo";
+import NetworkPageRo from "./pages/NetworkPageRo";
+import NotificationsPageRo from "./pages/NotificationsPageRo";
+import ProfilePageRo from "./pages/ProfilePageRo";
+import TermsPageRo from "./pages/TermsPageRo";
 
 import { axiosInstance } from "./lib/axios";
 
@@ -40,10 +52,9 @@ function App() {
   if (isLoading) return null;
 
   return (
-    <Layout>
+    <div className="min-h-screen bg-bg-princ">
       <Routes>
         {/* Public routes */}
-        <Route path="/welcome" element={<UnknownUser />} />
         <Route
           path="/signup"
           element={!authUser ? <SignUpPage /> : <Navigate to="/" replace />}
@@ -52,7 +63,22 @@ function App() {
           path="/login"
           element={!authUser ? <LoginPage /> : <Navigate to="/" replace />}
         />
+        <Route
+          path="/signupro"
+          element={!authUser ? <SignUpRo /> : <Navigate to="/ro" replace />}
+        />
+        <Route
+          path="/loginro"
+          element={!authUser ? <LoginPageRo /> : <Navigate to="/ro" replace />}
+        />
+
+        <Route path="/welcome" element={<UnknownUser />} />
         <Route path="/terms" element={<TermsPage />} />
+
+        <Route path="/welcomero" element={<UnknownUserRo />} />
+        <Route path="/signupro" element={<SignUpRo />} />
+        <Route path="/loginro" element={<LoginPageRo />} />
+        <Route path="/termsro" element={<TermsPageRo />} />
 
         {/* Protected routes */}
         <Route
@@ -64,6 +90,15 @@ function App() {
           }
         />
         <Route
+          path="/ro"
+          element={
+            <ProtectedRoute user={authUser}>
+              <HomePageRo />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
           path="/notifications"
           element={
             <ProtectedRoute user={authUser}>
@@ -71,6 +106,15 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route
+          path="/notificationsro"
+          element={
+            <ProtectedRoute user={authUser}>
+              <NotificationsPageRo />
+            </ProtectedRoute>
+          }
+        />
+
         <Route
           path="/community"
           element={
@@ -80,6 +124,15 @@ function App() {
           }
         />
         <Route
+          path="/communityro"
+          element={
+            <ProtectedRoute user={authUser}>
+              <CommunityPageRo />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
           path="/network"
           element={
             <ProtectedRoute user={authUser}>
@@ -87,6 +140,15 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route
+          path="/networkro"
+          element={
+            <ProtectedRoute user={authUser}>
+              <NetworkPageRo />
+            </ProtectedRoute>
+          }
+        />
+
         <Route
           path="/post/:postId"
           element={
@@ -104,6 +166,15 @@ function App() {
           }
         />
         <Route
+          path="/profilero/:username"
+          element={
+            <ProtectedRoute user={authUser}>
+              <ProfilePageRo />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
           path="/learn"
           element={
             <ProtectedRoute user={authUser}>
@@ -112,6 +183,15 @@ function App() {
           }
         />
         <Route
+          path="/learnro"
+          element={
+            <ProtectedRoute user={authUser}>
+              <LearnPageRo />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
           path="/learnhtml"
           element={
             <ProtectedRoute user={authUser}>
@@ -119,6 +199,15 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route
+          path="/learnhtmlro"
+          element={
+            <ProtectedRoute user={authUser}>
+              <LearnHTMLPageRo />
+            </ProtectedRoute>
+          }
+        />
+
         {/* Catch-all */}
         <Route
           path="*"
@@ -126,7 +215,7 @@ function App() {
         />
       </Routes>
       <Toaster />
-    </Layout>
+    </div>
   );
 }
 

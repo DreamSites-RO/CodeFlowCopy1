@@ -4,9 +4,8 @@ import { Link } from "react-router-dom";
 
 import { motion } from "framer-motion";
 
-import Footer from "../components/layout/Footer";
-
-import NavBar from "../components/layout/Navbar";
+import FooterRo from "../components/layout/FooterRo";
+import NavBarRo from "../components/layout/NavbarRo";
 
 const LearnPage = () => {
   const [activeTab, setActiveTab] = useState(1);
@@ -41,7 +40,7 @@ const LearnPage = () => {
 
   return (
     <>
-      <NavBar />
+      <NavbarRo />
       <div className="w-full mh-auto bg-[#040f1a] relative">
         <div className="max-w-7xl mx-auto flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8 py-16">
           <motion.h1
@@ -50,7 +49,7 @@ const LearnPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            Explore the world of
+            Explora Lumea
           </motion.h1>
 
           <motion.h1
@@ -68,8 +67,8 @@ const LearnPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Start your coding journey with interactive programming <br />
-            exercises and quizzes. Explore for free!
+            Începe-ți călătoria în programare cu exerciții interactive și teste.
+            Explorează gratuit!
           </motion.p>
         </div>
       </div>
@@ -84,93 +83,94 @@ const LearnPage = () => {
         >
           <h1 className="flex flex-row items-center gap-2 text-base sm:text-lg md:text-xl drop-shadow-2xl text-gray-deschis font-pixel mb-4 leading-snug">
             <Earth className="text-blue-300" />
-            The origins
+            Originile
           </h1>
           <p className="text-sm sm:text-base md:text-lg drop-shadow-2xl text-text-gray font-poppins">
-            Curious about building your own website? Discover the three
-            essential technologies that power the web.
+            Ești curios cum să-ți construiești propriul site web? Descoperă cele
+            trei tehnologii esențiale care stau la baza internetului.
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* HTML Card */}
-          <Link to="/learnhtml">
+          {/* Card HTML */}
+          <Link to="/learnhtmlro">
             <div className="w-full hover:bg-[#0F112A] hover:bg-opacity-70 transition-all duration-500 bg-[#0F111A] border-2 font-poppins border-gray-700 rounded-lg text-left overflow-hidden shadow-lg text-text-gray">
               <div className="relative">
                 <img
                   src="/htmlbanner.jpg"
-                  alt="HTML Course"
+                  alt="Curs HTML"
                   className="w-full h-40 object-cover"
                 />
               </div>
               <div className="p-4">
                 <p className="text-small text-gray-deschis uppercase tracking-wide">
-                  Course
+                  Curs
                 </p>
                 <h2 className="text-xl font-bold">HTML</h2>
                 <p className="text-text-gray text-sm mt-2">
-                  Learn the fundamentals of web development, including structure
-                  and semantic markup with the...
+                  Învață elementele de bază ale dezvoltării web, inclusiv
+                  structura și marcajul semantic cu...
+                  <span className="text-transparent">CodeFlow</span>
                 </p>
                 <div className="mt-4 flex items-center">
                   <span className="flex items-center gap-2 bg-gray-700 text-gray-200 text-xs font-bold px-3 py-1 rounded-full">
                     <span className="w-2 h-2 bg-gray-400 rounded-full"></span>
-                    BEGINNER
+                    ÎNCEPĂTOR
                   </span>
                 </div>
               </div>
             </div>
           </Link>
 
-          {/* CSS Card */}
+          {/* Card CSS */}
           <div className="w-full hover:bg-[#0F112A] hover:bg-opacity-70 transition-all duration-500 bg-[#0F111A] border-2 font-poppins border-gray-700 rounded-lg text-left overflow-hidden shadow-lg text-text-gray">
             <div className="relative">
               <img
                 src="/cssbanner.jpg"
-                alt="CSS Course"
+                alt="Curs CSS"
                 className="w-full h-40 object-cover"
               />
             </div>
             <div className="p-4">
               <p className="text-small text-gray-deschis uppercase tracking-wide">
-                Course
+                Curs
               </p>
               <h2 className="text-xl font-bold">CSS</h2>
               <p className="text-text-gray text-sm mt-2">
-                Master the fundamentals of styling, including colors, layouts,
-                and responsive design with the...
+                Stăpânește elementele de bază ale stilizării, inclusiv culori,
+                layout-uri și design responsive cu...
               </p>
               <div className="mt-4 flex items-center">
                 <span className="flex items-center gap-2 bg-gray-700 text-gray-200 text-xs font-bold px-3 py-1 rounded-full">
                   <span className="w-2 h-2 bg-gray-400 rounded-full"></span>
-                  BEGINNER
+                  ÎNCEPĂTOR
                 </span>
               </div>
             </div>
           </div>
 
-          {/* JS Card */}
+          {/* Card JavaScript */}
           <div className="w-full hover:bg-[#0F112A] hover:bg-opacity-70 transition-all duration-500 bg-[#0F111A] border-2 font-poppins border-gray-700 rounded-lg text-left overflow-hidden shadow-lg text-text-gray">
             <div className="relative">
               <img
                 src="/javascriptbanner.jpg"
-                alt="JavaScript Course"
+                alt="Curs JavaScript"
                 className="w-full h-40 object-cover"
               />
             </div>
             <div className="p-4">
               <p className="text-small text-gray-deschis uppercase tracking-wide">
-                Course
+                Curs
               </p>
               <h2 className="text-xl font-bold">JavaScript</h2>
               <p className="text-text-gray text-sm mt-2">
-                Learn the fundamentals of JavaScript, including variables,
-                functions, and event handling with the...
+                Învață elementele de bază ale JavaScript-ului, inclusiv
+                variabile, funcții și gestionarea evenimentelor cu...
               </p>
               <div className="mt-4 flex items-center">
                 <span className="flex items-center gap-2 bg-gray-700 text-gray-200 text-xs font-bold px-3 py-1 rounded-full">
                   <span className="w-2 h-2 bg-gray-400 rounded-full"></span>
-                  BEGINNER
+                  ÎNCEPĂTOR
                 </span>
               </div>
             </div>
@@ -188,11 +188,11 @@ const LearnPage = () => {
         >
           <h1 className="flex flex-row items-center gap-2 text-base sm:text-lg md:text-xl drop-shadow-2xl text-gray-deschis font-pixel mb-4 leading-snug">
             <BookMarked className="text-purple-300" />
-            All courses
+            Toate cursurile
           </h1>
           <p className="text-sm sm:text-base md:text-lg drop-shadow-2xl text-text-gray font-poppins">
-            Curious about building your own website? Discover the three
-            essential technologies that power the web.
+            Curios cum funcționează un site web? Începe călătoria ta în
+            programare cu lecții clare, și quizuri interactive.
           </p>
         </motion.div>
 
@@ -208,7 +208,7 @@ const LearnPage = () => {
               }`}
             >
               <Settings2 className="w-4 h-4" />
-              {showFilters ? "Hide Filters" : "Show Filters"}
+              {showFilters ? "Ascunde Filtre" : "Arata Filtre"}
             </button>
           </div>
 
@@ -230,7 +230,7 @@ const LearnPage = () => {
               variants={containerVariants}
               viewport={{ once: true }}
             >
-              All Courses
+              Toate Cursurile
             </motion.button>
             <motion.button
               onClick={() => setActiveTab(2)}
@@ -244,7 +244,7 @@ const LearnPage = () => {
               variants={containerVariants}
               viewport={{ once: true }}
             >
-              Web Development
+              Dezvoltare Web
             </motion.button>
             <motion.button
               onClick={() => setActiveTab(3)}
@@ -258,7 +258,7 @@ const LearnPage = () => {
               variants={containerVariants}
               viewport={{ once: true }}
             >
-              Useful Tools
+              Unelte Utile
             </motion.button>
             <motion.button
               onClick={() => setActiveTab(4)}
@@ -272,224 +272,228 @@ const LearnPage = () => {
               variants={containerVariants}
               viewport={{ once: true }}
             >
-              Beginner
+              Începător
             </motion.button>
           </div>
         </div>
+
         {activeTab === 1 && (
           <>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* GSAP Card */}
               <div className="w-full max-w-[400px] mx-auto hover:bg-[#0F112A] hover:bg-opacity-70 transition-all duration-500 bg-[#0F111A] border-2 font-poppins border-gray-700 rounded-lg text-left overflow-hidden shadow-lg text-text-gray">
                 <div className="relative">
                   <img
                     src="/gsapbanner.jpg"
-                    alt="GSAP Course"
+                    alt="Curs GSAP"
                     className="w-full h-40 object-cover"
                   />
                 </div>
                 <div className="p-4">
                   <p className="text-small text-gray-deschis uppercase tracking-wide">
-                    Course
+                    Curs
                   </p>
                   <h2 className="text-xl font-bold">GSAP</h2>
                   <p className="text-text-gray text-sm mt-2">
-                    Learn GSAP fundamentals, including timelines, animations,
-                    and scroll-based effects with the...
+                    Învață elementele de bază GSAP, inclusiv timeline-uri,
+                    animații și efecte bazate pe scroll cu...
                   </p>
                   <div className="mt-4 flex items-center">
                     <span className="flex items-center gap-2 bg-gray-700 text-gray-deschis text-xs font-bold px-3 py-1 rounded-full">
                       <span className="w-2 h-2 bg-gray-400 rounded-full"></span>
                       <span className="w-2 h-2 bg-gray-400 rounded-full"></span>
-                      INTERMEDIATE
+                      INTERMEDIAR
                     </span>
                   </div>
                 </div>
               </div>
 
+              {/* HTML Card */}
               <div className="w-full max-w-[400px] mx-auto sm:mx-0 hover:bg-[#0F112A] hover:bg-opacity-70 transition-all duration-500 bg-[#0F111A] border-2 font-poppins border-gray-700 rounded-lg text-left overflow-hidden shadow-lg text-text-gray">
                 <div className="relative">
                   <img
                     src="/htmlbanner.jpg"
-                    alt="HTML Course"
+                    alt="Curs HTML"
                     className="w-full h-40 object-cover"
                   />
                 </div>
                 <div className="p-4">
                   <p className="text-small text-gray-deschis uppercase tracking-wide">
-                    Course
+                    Curs
                   </p>
                   <h2 className="text-xl font-bold">HTML</h2>
                   <p className="text-text-gray text-sm mt-2">
-                    Learn the fundamentals of web development, including
-                    structure and semantic markup with the...
+                    Învață fundamentele dezvoltării web, inclusiv structura și
+                    markup semantic cu...
                   </p>
-
                   <div className="mt-4 flex items-center">
                     <span className="flex items-center gap-2 bg-gray-700 text-gray-200 text-xs font-bold px-3 py-1 rounded-full">
                       <span className="w-2 h-2 bg-gray-400 rounded-full"></span>
-                      BEGINNER
+                      ÎNCEPĂTOR
                     </span>
                   </div>
                 </div>
               </div>
 
+              {/* React Card */}
               <div className="w-full max-w-[400px] mx-auto sm:mx-0 hover:bg-[#0F112A] hover:bg-opacity-70 transition-all duration-500 bg-[#0F111A] border-2 font-poppins border-gray-700 rounded-lg text-left overflow-hidden shadow-lg text-text-gray">
                 <div className="relative">
                   <img
                     src="/reactbanner.jpg"
-                    alt="React Course"
+                    alt="Curs React"
                     className="w-full h-40 object-cover"
                   />
                 </div>
                 <div className="p-4">
                   <p className="text-small text-gray-deschis uppercase tracking-wide">
-                    Course
+                    Curs
                   </p>
                   <h2 className="text-xl font-bold">React</h2>
                   <p className="text-text-gray text-sm mt-2">
-                    Dive into React fundamentals, including components, state
-                    management, and hooks with the...
+                    Aprofundează elementele de bază ale React, inclusiv
+                    componente, gestionarea stării și hooks cu...
                   </p>
-
                   <div className="mt-4 flex items-center">
                     <span className="flex items-center gap-2 bg-gray-700 text-gray-200 text-xs font-bold px-3 py-1 rounded-full">
                       <span className="w-2 h-2 bg-gray-400 rounded-full"></span>
                       <span className="w-2 h-2 bg-gray-400 rounded-full"></span>
-                      INTERMEDIATE
+                      INTERMEDIAR
                     </span>
                   </div>
                 </div>
               </div>
 
+              {/* Framer Motion Card */}
               <div className="w-full max-w-[400px] mx-auto sm:mx-0 hover:bg-[#0F112A] hover:bg-opacity-70 transition-all duration-500 bg-[#0F111A] border-2 font-poppins border-gray-700 rounded-lg text-left overflow-hidden shadow-lg text-text-gray">
                 <div className="relative">
                   <img
                     src="/framermotionbanner.jpg"
-                    alt="Framer-Motion Course"
+                    alt="Curs Framer Motion"
                     className="w-full h-40 object-cover"
                   />
                 </div>
                 <div className="p-4">
                   <p className="text-small text-gray-deschis uppercase tracking-wide">
-                    Course
+                    Curs
                   </p>
                   <h2 className="text-xl font-bold">Framer-Motion</h2>
                   <p className="text-text-gray text-sm mt-2">
-                    Explore Framer Motion fundamentals, including animations,
-                    gestures, and smooth transitions with the...
+                    Explorează bazele Framer Motion, inclusiv animații, gesturi
+                    și tranziții fluide cu...
                   </p>
-
                   <div className="mt-4 flex items-center">
                     <span className="flex items-center gap-2 bg-gray-700 text-gray-200 text-xs font-bold px-3 py-1 rounded-full">
                       <span className="w-2 h-2 bg-gray-400 rounded-full"></span>
-                      BEGGINER
+                      ÎNCEPĂTOR
                     </span>
                   </div>
                 </div>
               </div>
 
+              {/* VS Code Extensions Card */}
               <div className="w-full max-w-[400px] mx-auto sm:mx-0 hover:bg-[#0F112A] hover:bg-opacity-70 transition-all duration-500 bg-[#0F111A] border-2 font-poppins border-gray-700 rounded-lg text-left overflow-hidden shadow-lg text-text-gray">
                 <div className="relative">
                   <img
                     src="/vscodeextensionsbanner.jpg"
-                    alt="VS Code Extensions Course"
+                    alt="Curs Extensii VS Code"
                     className="w-full h-40 object-cover"
                   />
                 </div>
                 <div className="p-4">
                   <p className="text-small text-gray-deschis uppercase tracking-wide">
-                    Course
+                    Curs
                   </p>
-                  <h2 className="text-xl font-bold">VS Code Extensions</h2>
+                  <h2 className="text-xl font-bold">Extensii VS Code</h2>
                   <p className="text-text-gray text-sm mt-2">
-                    Discover essential VS Code Extensions to boost productivity
-                    and streamline your workflow with the...
+                    Descoperă extensii esențiale pentru VS Code care îți cresc
+                    productivitatea și îți eficientizează fluxul de lucru cu...
                   </p>
-
                   <div className="mt-4 flex items-center">
                     <span className="flex items-center gap-2 bg-gray-700 text-gray-200 text-xs font-bold px-3 py-1 rounded-full">
                       <span className="w-2 h-2 bg-gray-400 rounded-full"></span>
-                      BEGINNER
+                      ÎNCEPĂTOR
                     </span>
                   </div>
                 </div>
               </div>
 
+              {/* CSS Card */}
               <div className="w-full max-w-[400px] mx-auto hover:bg-[#0F112A] hover:bg-opacity-70 transition-all duration-500 bg-[#0F111A] border-2 font-poppins border-gray-700 rounded-lg text-left overflow-hidden shadow-lg text-text-gray">
                 <div className="relative">
                   <img
                     src="/cssbanner.jpg"
-                    alt="CSS Course"
+                    alt="Curs CSS"
                     className="w-full h-40 object-cover"
                   />
                 </div>
                 <div className="p-4">
                   <p className="text-small text-gray-deschis uppercase tracking-wide">
-                    Course
+                    Curs
                   </p>
                   <h2 className="text-xl font-bold">CSS</h2>
                   <p className="text-text-gray text-sm mt-2">
-                    Master the fundamentals of styling, including colors,
-                    layouts, and responsive design with the...
+                    Stăpânește elementele fundamentale ale stilizării: culori,
+                    layout-uri și design responsive cu...
                   </p>
                   <div className="mt-4 flex items-center">
                     <span className="flex items-center gap-2 bg-gray-700 text-gray-200 text-xs font-bold px-3 py-1 rounded-full">
                       <span className="w-2 h-2 bg-gray-400 rounded-full"></span>
-                      BEGINNER
+                      ÎNCEPĂTOR
                     </span>
                   </div>
                 </div>
               </div>
 
+              {/* JavaScript Card */}
               <div className="w-full max-w-[400px] mx-auto hover:bg-[#0F112A] hover:bg-opacity-70 transition-all duration-500 bg-[#0F111A] border-2 font-poppins border-gray-700 rounded-lg text-left overflow-hidden shadow-lg text-text-gray">
                 <div className="relative">
                   <img
                     src="/javascriptbanner.jpg"
-                    alt="JavaScript Course"
+                    alt="Curs JavaScript"
                     className="w-full h-40 object-cover"
                   />
                 </div>
                 <div className="p-4">
                   <p className="text-small text-gray-deschis uppercase tracking-wide">
-                    Course
+                    Curs
                   </p>
                   <h2 className="text-xl font-bold">JavaScript</h2>
                   <p className="text-text-gray text-sm mt-2">
-                    Learn the fundamentals of JavaScript, including variables,
-                    functions, and event handling with the...
+                    Învață conceptele de bază ale JavaScript: variabile, funcții
+                    și gestionarea evenimentelor cu...
                   </p>
                   <div className="mt-4 flex items-center">
                     <span className="flex items-center gap-2 bg-gray-700 text-gray-200 text-xs font-bold px-3 py-1 rounded-full">
                       <span className="w-2 h-2 bg-gray-400 rounded-full"></span>
-                      BEGINNER
+                      ÎNCEPĂTOR
                     </span>
                   </div>
                 </div>
               </div>
 
+              {/* Git & GitHub Card */}
               <div className="w-full max-w-[400px] mx-auto hover:bg-[#0F112A] hover:bg-opacity-70 transition-all duration-500 bg-[#0F111A] border-2 font-poppins border-gray-700 rounded-lg text-left overflow-hidden shadow-lg text-text-gray">
                 <div className="relative">
                   <img
                     src="/git&githubbanner.jpg"
-                    alt="GitHub & Git Course"
+                    alt="Curs Git și GitHub"
                     className="w-full h-40 object-cover"
                   />
                 </div>
                 <div className="p-4">
                   <p className="text-small text-gray-deschis uppercase tracking-wide">
-                    Course
+                    Curs
                   </p>
                   <h2 className="text-xl font-bold">Git & GitHub</h2>
                   <p className="text-text-gray text-sm mt-2">
-                    Learn the basics of Git and GitHub, including version
-                    control, repositories, and collaboration with the...
+                    Învață noțiunile de bază Git și GitHub: controlul
+                    versiunilor, repository-uri și colaborarea în echipă cu...
                   </p>
-
                   <div className="mt-4 flex items-center">
                     <span className="flex items-center gap-2 bg-gray-700 text-gray-200 text-xs font-bold px-3 py-1 rounded-full">
                       <span className="w-2 h-2 bg-gray-400 rounded-full"></span>
                       <span className="w-2 h-2 bg-gray-400 rounded-full"></span>
-                      INTERMEDIATE
+                      INTERMEDIAR
                     </span>
                   </div>
                 </div>
@@ -499,7 +503,7 @@ const LearnPage = () => {
         )}
       </div>
 
-      <Footer />
+      <FooterRo />
     </>
   );
 };

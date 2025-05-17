@@ -49,12 +49,12 @@ const Footer = () => {
             viewport={{ once: true }}
             className="text-sm text-gray-400 font-medium space-x-2"
           >
-            <Link to={romanianLink} className="text-lg hover:text-white">
-              🇷🇴 Română
+            <Link to={englishLink} className="text-lg hover:text-white">
+              🇬🇧 Engleză
             </Link>
             /
-            <Link to={englishLink} className="text-lg hover:text-white">
-              🇬🇧 English
+            <Link to={romanianLink} className="text-lg hover:text-white">
+              🇷🇴 Română
             </Link>
           </motion.div>
         </div>
@@ -63,37 +63,37 @@ const Footer = () => {
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 mb-12 text-sm">
           <div>
             <h4 className="text-gray-400 uppercase tracking-wide mb-3">
-              Company
+              Companie
             </h4>
             <ul className="space-y-2">
               <li>
-                <Link to="/about">About</Link>
+                <Link to="/about">Despre</Link>
               </li>
               <li>
-                <Link to="/community">Community</Link>
+                <Link to="/community">Comunitate</Link>
               </li>
             </ul>
           </div>
           <div>
             <h4 className="text-gray-400 uppercase tracking-wide mb-3">
-              Practice
+              Practică
             </h4>
             <ul className="space-y-2">
               <li>
-                <Link to="/challenges">Challenges</Link>
+                <Link to="/challenges">Provocări</Link>
               </li>
               <li>
-                <Link to="/projects">Projects</Link>
+                <Link to="/projects">Proiecte</Link>
               </li>
             </ul>
           </div>
           <div>
             <h4 className="text-gray-400 uppercase tracking-wide mb-3">
-              Learn
+              Învățați
             </h4>
             <ul className="space-y-2">
               <li>
-                <Link to="/courses">All Courses</Link>
+                <Link to="/courses">Toate cursurile</Link>
               </li>
               <li>
                 <Link to="/html">HTML</Link>
@@ -107,7 +107,9 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h4 className="text-gray-400 uppercase tracking-wide mb-3">More</h4>
+            <h4 className="text-gray-400 uppercase tracking-wide mb-3">
+              Mai multe
+            </h4>
             <ul className="space-y-2">
               <li>
                 <Link to="/react">React</Link>
@@ -116,7 +118,7 @@ const Footer = () => {
                 <Link to="/git">Git & GitHub</Link>
               </li>
               <li>
-                <Link to="/extensions">Extensions</Link>
+                <Link to="/extensions">Extensii</Link>
               </li>
               <li>
                 <Link to="/gsap">GSAP</Link>
@@ -132,8 +134,8 @@ const Footer = () => {
         <div className="flex flex-col lg:flex-row justify-between items-center border-t border-gray-800 pt-8">
           <div className="text-sm text-gray-500 space-x-4 mb-4 lg:mb-0">
             <span>©2025 CodeFlow, Inc.</span>
-            <Link to="/terms">Terms</Link>
-            <Link to="/privacy">Privacy Policy</Link>
+            <Link to="/terms">Termeni</Link>
+            <Link to="/privacy">Politica de confidențialitate</Link>
           </div>
           <div className="flex space-x-4 text-2xl text-white">
             <a

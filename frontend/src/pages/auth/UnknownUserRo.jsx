@@ -3,8 +3,8 @@ import React, { useState } from "react";
 
 import { motion, useInView } from "framer-motion";
 
-import NavBar from "../../components/layout/Navbar";
-import Footer from "../../components/layout/Footer";
+import FooterRo from "../../components/layout/FooterRo";
+import NavbarRo from "../../components/layout/NavbarRo";
 
 const fadeUpVariant = {
   hidden: { opacity: 0, y: 40 },
@@ -22,94 +22,6 @@ const fadeUpVariant = {
 const UnknownUser = () => {
   const [activeTab, setActiveTab] = useState(1);
 
-  //     id: 1,
-  //     question: "What is web development?",
-  //     answer:
-  //       "Web development involves creating and maintaining websites or web applications. It encompasses everything from coding and programming to designing the user interface and user experience.",
-  //   },
-  //   {
-  //     id: 2,
-  //     question: "What are the key skills needed for web development?",
-  //     answer:
-  //       "Key skills include proficiency in HTML, CSS, and JavaScript. Familiarity with frameworks, version control systems (like Git), responsive design, and basic understanding of server-side technologies are also important.",
-  //   },
-  //   {
-  //     id: 3,
-  //     question: "Do I need a degree to become a web developer?",
-  //     answer:
-  //       "No, you don't need a degree. Many successful web developers are self-taught through online resources, coding bootcamps, and practical experience.",
-  //   },
-  //   {
-  //     id: 4,
-  //     question: "Where should I start if I'm new to web development?",
-  //     answer:
-  //       "Start by learning the basics of HTML, CSS, and JavaScript. Once you're comfortable with these, you can move on to more advanced topics like frameworks, backend development, and databases.",
-  //   },
-  //   {
-  //     id: 5,
-  //     question:
-  //       "What is the difference between front-end and back-end development?",
-  //     answer:
-  //       "Front-end development focuses on the user interface and user experience of a website (what users see and interact with), while back-end development involves the server-side logic, databases, and application functionality.",
-  //   },
-  //   {
-  //     id: 6,
-  //     question: "Should I learn how to design websites as a developer?",
-  //     answer:
-  //       "While not mandatory, having basic design skills is beneficial. Understanding design principles, such as layout, color theory, and typography, can help you create more visually appealing and user-friendly websites.",
-  //   },
-  //   {
-  //     id: 7,
-  //     question: "What are some essential tools for web developers?",
-  //     answer:
-  //       "Essential tools include code editors like Visual Studio Code, version control systems like Git, and browser developer tools. Familiarity with command-line interfaces and package managers (like npm) is also helpful.",
-  //   },
-  // ];
-
-  // const questions2 = [
-  //   {
-  //     id: 1,
-  //     question: "What are some popular front-end frameworks?",
-  //     answer:
-  //       "Popular front-end frameworks include React.js, Vue.js, and Angular. These frameworks help you build dynamic user interfaces efficiently.",
-  //   },
-  //   {
-  //     id: 2,
-  //     question: "What is an API, and how do I use it in web development?",
-  //     answer:
-  //       "An API (Application Programming Interface) allows different software applications to communicate with each other. In web development, APIs are often used to fetch data from external sources or services.",
-  //   },
-  //   {
-  //     id: 3,
-  //     question: "What are some good projects to start with as a beginner?",
-  //     answer:
-  //       "Begin with small projects like building a personal portfolio website, a to-do list app, or a simple blog. These will help you apply your skills and build a portfolio.",
-  //   },
-  //   {
-  //     id: 4,
-  //     question: "What is responsive design, and why is it important?",
-  //     answer:
-  //       "Responsive design ensures that websites look and function well on all devices, including desktops, tablets, and smartphones. It’s important because it improves user experience and SEO rankings.",
-  //   },
-  //   {
-  //     id: 5,
-  //     question: "What is the difference between a library and a framework?",
-  //     answer:
-  //       "A library is a collection of pre-written code that you can call upon to accomplish tasks, while a framework provides a structure and guidelines for building applications, often dictating the flow and architecture of your project.",
-  //   },
-  //   {
-  //     id: 6,
-  //     question: "How long does it take to become a proficient web developer?",
-  //     answer:
-  //       "It depends on your learning pace and dedication. On average, it can take anywhere from 6 months to 2 years to become proficient, depending on whether you're learning part-time or full-time.",
-  //   },
-  //   {
-  //     id: 7,
-  //     question: "What programming languages should I learn first?",
-  //     answer:
-  //       "Start with HTML and CSS for structuring and styling web pages. Then, learn JavaScript to add interactivity. After mastering these, you can explore other languages like Python or PHP for back-end development.",
-  //   },
-  // ];
   const animationVariants = {
     hidden: { opacity: 0, y: 40 },
     visible: (i = 0) => ({
@@ -164,7 +76,7 @@ const UnknownUser = () => {
 
   return (
     <>
-      <NavBar />
+      <NavbarRo />
 
       <div
         className="w-full h-full bg-cover bg-center"
@@ -185,7 +97,7 @@ const UnknownUser = () => {
                 animate="visible"
                 custom={0}
               >
-                START YOUR
+                ÎNCEPE
               </motion.h1>
 
               <motion.h1
@@ -195,7 +107,7 @@ const UnknownUser = () => {
                 animate="visible"
                 custom={1}
               >
-                Coding
+                Aventura
               </motion.h1>
 
               <motion.h1
@@ -205,7 +117,7 @@ const UnknownUser = () => {
                 animate="visible"
                 custom={2}
               >
-                Adventure
+                de Programare
               </motion.h1>
 
               <motion.p
@@ -215,7 +127,8 @@ const UnknownUser = () => {
                 animate="visible"
                 custom={3}
               >
-                Start your coding adventure in the easiest way!
+                Începe-ți aventura în programare într-un mod simplu și
+                distractiv!
               </motion.p>
 
               <motion.button
@@ -225,7 +138,7 @@ const UnknownUser = () => {
                 animate="visible"
                 custom={4}
               >
-                <Link to="/signup">Get Started</Link>
+                <Link to="/signupro">Începe Acum</Link>
               </motion.button>
             </div>
           </div>
@@ -241,12 +154,11 @@ const UnknownUser = () => {
           viewport={{ once: true }} // Animation triggers only once when the element comes into view
         >
           <h1 className="text-xl sm:text-2xl md:text-3xl drop-shadow-2xl text-gray-deschis font-pixel mb-6 sm:mb-8 leading-snug">
-            An adventure through <br className="hidden sm:block" /> the world of
-            coding
+            O aventură prin <br className="hidden sm:block" /> lumea programării
           </h1>
           <p className="text-sm sm:text-base md:text-lg drop-shadow-2xl text-text-gray font-poppins">
-            Learn to code with fun, interactive courses handcrafted by industry
-            experts and educators.
+            Învață să programezi cu ajutorul unor cursuri interactive și
+            distractive, create de experți din industrie și educatori.
           </p>
         </motion.div>
 
@@ -266,7 +178,7 @@ const UnknownUser = () => {
                     : "text-gray-deschis border-text-gray opacity-60 hover:opacity-100"
                 }`}
               >
-                Popular
+                Populare
               </button>
             </motion.div>
 
@@ -284,7 +196,7 @@ const UnknownUser = () => {
                     : "text-gray-deschis border-text-gray opacity-60 hover:opacity-100"
                 }`}
               >
-                Web Development
+                Dezvoltare web
               </button>
             </motion.div>
 
@@ -302,7 +214,7 @@ const UnknownUser = () => {
                     : "text-gray-deschis border-text-gray opacity-60 hover:opacity-100"
                 }`}
               >
-                Useful Tools
+                Unelte utile
               </button>
             </motion.div>
           </div>
@@ -320,18 +232,18 @@ const UnknownUser = () => {
                   </div>
                   <div className="p-4">
                     <p className="text-small text-gray-deschis uppercase tracking-wide">
-                      Course
+                      Curs
                     </p>
                     <h2 className="text-xl font-bold">GSAP</h2>
                     <p className="text-text-gray text-sm mt-2">
-                      Learn GSAP fundamentals, including timelines, animations,
-                      and scroll-based effects with the...
+                      Învață elementele de bază ale GSAP, inclusiv cronologiile,
+                      animațiile și efectele bazate pe derulare cu...
                     </p>
                     <div className="mt-4 flex items-center">
                       <span className="flex items-center gap-2 bg-gray-700 text-gray-deschis text-xs font-bold px-3 py-1 rounded-full">
                         <span className="w-2 h-2 bg-gray-400 rounded-full"></span>
                         <span className="w-2 h-2 bg-gray-400 rounded-full"></span>
-                        INTERMEDIATE
+                        INTERMEDIAR
                       </span>
                     </div>
                   </div>
@@ -347,18 +259,18 @@ const UnknownUser = () => {
                   </div>
                   <div className="p-4">
                     <p className="text-small text-gray-deschis uppercase tracking-wide">
-                      Course
+                      Curs
                     </p>
                     <h2 className="text-xl font-bold">HTML</h2>
                     <p className="text-text-gray text-sm mt-2">
-                      Learn the fundamentals of web development, including
-                      structure and semantic markup with the...
+                      Învață elementele de bază ale dezvoltării web, inclusiv
+                      structura și marcajul semantic, cu ajutorul...
                     </p>
 
                     <div className="mt-4 flex items-center">
                       <span className="flex items-center gap-2 bg-gray-700 text-gray-200 text-xs font-bold px-3 py-1 rounded-full">
                         <span className="w-2 h-2 bg-gray-400 rounded-full"></span>
-                        BEGINNER
+                        INCEPATOR
                       </span>
                     </div>
                   </div>
@@ -374,19 +286,20 @@ const UnknownUser = () => {
                   </div>
                   <div className="p-4">
                     <p className="text-small text-gray-deschis uppercase tracking-wide">
-                      Course
+                      Curs
                     </p>
                     <h2 className="text-xl font-bold">React</h2>
                     <p className="text-text-gray text-sm mt-2">
-                      Dive into React fundamentals, including components, state
-                      management, and hooks with the...
+                      Aprofundează elementele de bază React, inclusiv
+                      componentele, gestionarea stării și hooks-urile, cu
+                      ajutorul...
                     </p>
 
                     <div className="mt-4 flex items-center">
                       <span className="flex items-center gap-2 bg-gray-700 text-gray-200 text-xs font-bold px-3 py-1 rounded-full">
                         <span className="w-2 h-2 bg-gray-400 rounded-full"></span>
                         <span className="w-2 h-2 bg-gray-400 rounded-full"></span>
-                        INTERMEDIATE
+                        INTERMEDIAR
                       </span>
                     </div>
                   </div>
@@ -402,18 +315,19 @@ const UnknownUser = () => {
                   </div>
                   <div className="p-4">
                     <p className="text-small text-gray-deschis uppercase tracking-wide">
-                      Course
+                      Curs
                     </p>
                     <h2 className="text-xl font-bold">Framer-Motion</h2>
                     <p className="text-text-gray text-sm mt-2">
-                      Explore Framer Motion fundamentals, including animations,
-                      gestures, and smooth transitions with the...
+                      Explorează elementele de bază Framer Motion, inclusiv
+                      animațiile, gesturile și tranzițiile fluide, cu
+                      ajutorul...
                     </p>
 
                     <div className="mt-4 flex items-center">
                       <span className="flex items-center gap-2 bg-gray-700 text-gray-200 text-xs font-bold px-3 py-1 rounded-full">
                         <span className="w-2 h-2 bg-gray-400 rounded-full"></span>
-                        BEGGINER
+                        INCEPATOR
                       </span>
                     </div>
                   </div>
@@ -429,26 +343,27 @@ const UnknownUser = () => {
                   </div>
                   <div className="p-4">
                     <p className="text-small text-gray-deschis uppercase tracking-wide">
-                      Course
+                      Curs
                     </p>
                     <h2 className="text-xl font-bold">VS Code Extensions</h2>
                     <p className="text-text-gray text-sm mt-2">
-                      Discover essential VS Code Extensions to boost
-                      productivity and streamline your workflow with the...
+                      Descoperă extensiile esențiale pentru VS Code pentru a
+                      spori productivitatea și a eficientiza fluxul de lucru cu
+                      ajutorul...
                     </p>
 
                     <div className="mt-4 flex items-center">
                       <span className="flex items-center gap-2 bg-gray-700 text-gray-200 text-xs font-bold px-3 py-1 rounded-full">
                         <span className="w-2 h-2 bg-gray-400 rounded-full"></span>
-                        BEGINNER
+                        INCEPATOR
                       </span>
                     </div>
                   </div>
                 </div>
               </div>
-              <Link to="/login">
+              <Link to="/loginro">
                 <button className="font-semibold text-sm sm:text-base mt-8 border-2 rounded-[10px] text-yellow-ok border-yellow-ok bg-yellow-ok bg-opacity-10 hover:bg-opacity-20 font-pixel px-6 sm:px-8 py-2 sm:py-3 transition-colors duration-500">
-                  Explore All Courses
+                  Exploareaza toate cursurile
                 </button>
               </Link>
             </>
@@ -467,17 +382,17 @@ const UnknownUser = () => {
                   </div>
                   <div className="p-4">
                     <p className="text-small text-gray-deschis uppercase tracking-wide">
-                      Course
+                      Curs
                     </p>
                     <h2 className="text-xl font-bold">HTML</h2>
                     <p className="text-text-gray text-sm mt-2">
-                      Learn the fundamentals of web development, including
-                      structure and semantic markup with the...
+                      Învață elementele de bază ale dezvoltării web, inclusiv
+                      structura și marcajul semantic, cu ajutorul...
                     </p>
                     <div className="mt-4 flex items-center">
                       <span className="flex items-center gap-2 bg-gray-700 text-gray-200 text-xs font-bold px-3 py-1 rounded-full">
                         <span className="w-2 h-2 bg-gray-400 rounded-full"></span>
-                        BEGINNER
+                        INCEPATOR
                       </span>
                     </div>
                   </div>
@@ -493,17 +408,18 @@ const UnknownUser = () => {
                   </div>
                   <div className="p-4">
                     <p className="text-small text-gray-deschis uppercase tracking-wide">
-                      Course
+                      Curs
                     </p>
                     <h2 className="text-xl font-bold">CSS</h2>
                     <p className="text-text-gray text-sm mt-2">
-                      Master the fundamentals of styling, including colors,
-                      layouts, and responsive design with the...
+                      Stăpânește elementele de bază ale stilizării, inclusiv
+                      culorile, layout-urile și designul responsive, cu
+                      ajutorul...
                     </p>
                     <div className="mt-4 flex items-center">
                       <span className="flex items-center gap-2 bg-gray-700 text-gray-200 text-xs font-bold px-3 py-1 rounded-full">
                         <span className="w-2 h-2 bg-gray-400 rounded-full"></span>
-                        BEGINNER
+                        INCEPATOR
                       </span>
                     </div>
                   </div>
@@ -519,17 +435,18 @@ const UnknownUser = () => {
                   </div>
                   <div className="p-4">
                     <p className="text-small text-gray-deschis uppercase tracking-wide">
-                      Course
+                      Curs
                     </p>
                     <h2 className="text-xl font-bold">JavaScript</h2>
                     <p className="text-text-gray text-sm mt-2">
-                      Learn the fundamentals of JavaScript, including variables,
-                      functions, and event handling with the...
+                      Învață elementele de bază ale JavaScript, inclusiv
+                      variabile, funcții și gestionarea evenimentelor, cu
+                      ajutorul...
                     </p>
                     <div className="mt-4 flex items-center">
                       <span className="flex items-center gap-2 bg-gray-700 text-gray-200 text-xs font-bold px-3 py-1 rounded-full">
                         <span className="w-2 h-2 bg-gray-400 rounded-full"></span>
-                        BEGINNER
+                        INCEPATOR
                       </span>
                     </div>
                   </div>
@@ -545,26 +462,27 @@ const UnknownUser = () => {
                   </div>
                   <div className="p-4">
                     <p className="text-small text-gray-deschis uppercase tracking-wide">
-                      Course
+                      Curs
                     </p>
                     <h2 className="text-xl font-bold">React</h2>
                     <p className="text-text-gray text-sm mt-2">
-                      Dive into React fundamentals, including components, state
-                      management, and hooks with the...
+                      Aprofundează elementele de bază React, inclusiv
+                      componentele, gestionarea stării și hooks-urile, cu
+                      ajutorul...
                     </p>
 
                     <div className="mt-4 flex items-center">
                       <span className="flex items-center gap-2 bg-gray-700 text-gray-200 text-xs font-bold px-3 py-1 rounded-full">
                         <span className="w-2 h-2 bg-gray-400 rounded-full"></span>
                         <span className="w-2 h-2 bg-gray-400 rounded-full"></span>
-                        INTERMEDIATE
+                        INTERMEDIAR
                       </span>
                     </div>
                   </div>
                 </div>
               </div>
               <button className="font-semibold text-sm sm:text-base mt-8 border-2 rounded-[10px] text-yellow-ok border-yellow-ok bg-yellow-ok bg-opacity-10 hover:bg-opacity-20 font-pixel px-6 sm:px-8 py-2 sm:py-3 transition-colors duration-500">
-                Explore All Courses
+                Exploreaza toate cursurile
               </button>
             </>
           )}
@@ -582,18 +500,19 @@ const UnknownUser = () => {
                   </div>
                   <div className="p-4">
                     <p className="text-small text-gray-deschis uppercase tracking-wide">
-                      Course
+                      Curs
                     </p>
                     <h2 className="text-xl font-bold">VS Code Extensions</h2>
                     <p className="text-text-gray text-sm mt-2">
-                      Discover essential VS Code Extensions to boost
-                      productivity and streamline your workflow with the...
+                      Descoperă extensiile esențiale pentru VS Code pentru a
+                      îmbunătăți productivitatea și a eficientiza fluxul de
+                      lucru cu ajutorul...
                     </p>
 
                     <div className="mt-4 flex items-center">
                       <span className="flex items-center gap-2 bg-gray-700 text-gray-200 text-xs font-bold px-3 py-1 rounded-full">
                         <span className="w-2 h-2 bg-gray-400 rounded-full"></span>
-                        BEGINNER
+                        INCEPATOR
                       </span>
                     </div>
                   </div>
@@ -609,25 +528,26 @@ const UnknownUser = () => {
                   </div>
                   <div className="p-4">
                     <p className="text-small text-gray-deschis uppercase tracking-wide">
-                      Course
+                      Curs
                     </p>
                     <h2 className="text-xl font-bold">Git & GitHub</h2>
                     <p className="text-text-gray text-sm mt-2">
-                      Learn the basics of Git and GitHub, including version
-                      control, repositories, and collaboration with the...
+                      Învață elementele de bază ale Git și GitHub, inclusiv
+                      controlul versiunilor, depozitele și colaborarea, cu
+                      ajutorul...
                     </p>
 
                     <div className="mt-4 flex items-center">
                       <span className="flex items-center gap-2 bg-gray-700 text-gray-200 text-xs font-bold px-3 py-1 rounded-full">
                         <span className="w-2 h-2 bg-gray-400 rounded-full"></span>
-                        BEGINNER
+                        INCEPATOR
                       </span>
                     </div>
                   </div>
                 </div>
               </div>
               <button className="font-semibold text-sm sm:text-base mt-8 border-2 rounded-[10px] text-yellow-ok border-yellow-ok bg-yellow-ok bg-opacity-10 hover:bg-opacity-20 font-pixel px-6 sm:px-8 py-2 sm:py-3 transition-colors duration-500">
-                Explore All Courses
+                Exploreaza toate cursurile
               </button>
             </>
           )}
@@ -665,14 +585,15 @@ const UnknownUser = () => {
               whileInView={() => setHasAnimated(true)}
             >
               <h1 className="text-xl sm:text-2xl drop-shadow-2xl text-gray-deschis font-pixel font-semibold mb-6 sm:mb-8 opacity-0 animate-fadeIn">
-                Create, share, and <br className="hidden sm:block" /> grow
-                together
+                Creează, împărtășește și <br className="hidden sm:block" />{" "}
+                crește împreună
               </h1>
               <p className="text-sm sm:text-base drop-shadow-2xl text-text-gray font-poppins opacity-0 animate-fadeIn">
-                Our built-in community space is where creativity meets
-                connection. Share your work, drop your favorite memes, explore
-                useful courses, and trade tips. Everything you need, all in one
-                place.
+                Spațiul nostru integrat de comunitate este locul unde
+                creativitatea se întâlnește cu conexiunea. Împărtășește-ți
+                lucrările, postează meme-urile tale preferate, explorează
+                cursuri utile și schimbă sfaturi. Tot ce ai nevoie, într-un
+                singur loc.
               </p>
             </motion.div>
           </div>
@@ -686,12 +607,12 @@ const UnknownUser = () => {
               whileInView={() => setHasAnimated(true)}
             >
               <h1 className="text-xl sm:text-2xl drop-shadow-2xl text-gray-deschis font-pixel font-semibold mb-6 sm:mb-8 opacity-0 animate-fadeIn">
-                Level up your <br className="hidden sm:block" /> learning
+                Îmbunătățește-ți <br className="hidden sm:block" /> învățarea
               </h1>
               <p className="text-sm sm:text-base drop-shadow-2xl text-text-gray font-poppins opacity-0 animate-fadeIn">
-                Level up your web development skills with easy lessons in HTML,
-                CSS, JavaScript, and more. Build real websites while unlocking
-                achievements along the way!
+                Îmbunătățește-ți abilitățile de dezvoltare web cu lecții ușoare
+                în HTML, CSS, JavaScript și multe altele. Creează site-uri reale
+                în timp ce deblochezi realizări pe parcurs!
               </p>
             </motion.div>
 
@@ -733,13 +654,14 @@ const UnknownUser = () => {
               whileInView={() => setHasAnimated(true)}
             >
               <h1 className="text-xl sm:text-2xl drop-shadow-2xl text-gray-deschis font-pixel font-semibold mb-6 sm:mb-8 opacity-0 animate-fadeIn">
-                Quiz Your Way <br className="hidden sm:block" /> to Mastery
+                Testează-ți drumul <br className="hidden sm:block" /> către
+                măiestrie
               </h1>
               <p className="text-sm sm:text-base drop-shadow-2xl text-text-gray font-poppins opacity-0 animate-fadeIn">
-                Put your coding knowledge to the test with interactive quizzes
-                and mini challenges designed to help you apply what you’ve
-                learned to real-world problems. Sharpen your skills and level
-                up—one quiz at a time.
+                Pune-ți cunoștințele de programare la încercare cu quiz-uri
+                interactive și mini provocări concepute pentru a te ajuta să
+                aplici ceea ce ai învățat la probleme din viața reală.
+                Perfectionează-ți abilitățile și progresează—un quiz pe rând.
               </p>
             </motion.div>
           </div>
@@ -756,10 +678,10 @@ const UnknownUser = () => {
         <div className="max-w-7xl min-h-screen mx-auto flex flex-col justify-center items-center py-12 sm:px-6 lg:px-8 lg:py-24 bg-cover bg-center text-center">
           <div className="text-center flex flex-col justify-center items-center mb-8 px-4 sm:px-6 md:px-8">
             <h1 className="text-xl sm:text-2xl drop-shadow-2xl text-gray-deschis font-bold font-pixel mb-4">
-              Frequently Asked Questions
+              Întrebări frecvente
             </h1>
             <p className="text-sm sm:text-base drop-shadow-2xl text-text-gray font-bold text-text-deschis font-poppins mb-10 sm:mb-12 max-w-2xl">
-              Some frequently asked questions about starting Web Development
+              Unele întrebări frecvente despre începuturile în Dezvoltarea Web
             </p>
           </div>
 
@@ -772,12 +694,13 @@ const UnknownUser = () => {
               viewport={{ once: true }}
             >
               <h1 className="text-lg sm:text-xl md:text-2xl font-bold">
-                What is web development?
+                Ce este dezvoltarea web?
               </h1>
               <p className="text-sm sm:text-base drop-shadow-2xl text-left">
-                Web development involves creating and maintaining websites or
-                web applications. It encompasses everything from coding and
-                programming to designing the user interface and user experience.
+                Dezvoltarea web implică crearea și întreținerea site-urilor web
+                sau aplicațiilor web. Aceasta cuprinde totul, de la programare
+                și codare până la proiectarea interfeței utilizatorului și
+                experienței utilizatorului.
               </p>
             </motion.div>
 
@@ -789,13 +712,14 @@ const UnknownUser = () => {
               viewport={{ once: true }}
             >
               <h1 className="text-lg sm:text-xl md:text-2xl font-bold">
-                What are the key skills needed for web development?
+                Care sunt abilitățile cheie necesare pentru dezvoltarea web?
               </h1>
               <p className="text-sm sm:text-base drop-shadow-2xl text-left">
-                Key skills include proficiency in HTML, CSS, and JavaScript.
-                Familiarity with frameworks, version control systems (like Git),
-                responsive design, and basic understanding of server-side
-                technologies are also important.
+                Abilitățile cheie includ competența în HTML, CSS și JavaScript.
+                Cunoașterea unor framework-uri, sisteme de control al
+                versiunilor (cum ar fi Git), designul responsive și înțelegerea
+                de bază a tehnologiilor pe partea de server sunt, de asemenea,
+                importante.
               </p>
             </motion.div>
 
@@ -807,13 +731,14 @@ const UnknownUser = () => {
               viewport={{ once: true }}
             >
               <h1 className="text-lg sm:text-xl md:text-2xl font-bold">
-                What are some essential tools for web developers?
+                Care sunt câteva instrumente esențiale pentru dezvoltatori web?
               </h1>
               <p className="text-sm sm:text-base drop-shadow-2xl text-left">
-                Essential tools include code editors like Visual Studio Code,
-                version control systems like Git, and browser developer tools.
-                Familiarity with command-line interfaces and package managers
-                (like npm) is also helpful.
+                Instrumentele esențiale includ editori de cod precum Visual
+                Studio Code, sisteme de control al versiunilor precum Git și
+                instrumente pentru dezvoltatori din browser. Cunoașterea
+                interfețelor de linie de comandă și a managerilor de pachete
+                (cum ar fi npm) este, de asemenea, utilă.
               </p>
             </motion.div>
 
@@ -825,19 +750,20 @@ const UnknownUser = () => {
               viewport={{ once: true }}
             >
               <h1 className="text-lg sm:text-xl md:text-2xl font-bold">
-                What are some good projects to start with as a beginner?
+                Care sunt câteva proiecte bune cu care să începi ca începător?
               </h1>
-              <p className="text-sm sm:text-base drop-shadow-2xl text-left pb-12 lg:pb-24">
-                Begin with small projects like building a personal portfolio
-                website, a to-do list app, or a simple blog. These will help you
-                apply your skills and build a portfolio.
+              <p className="text-sm sm:text-base drop-shadow-2xl text-left">
+                Începe cu proiecte mici, precum crearea unui site personal de
+                portofoliu, o aplicație de listă de sarcini sau un blog simplu.
+                Acestea te vor ajuta să îți aplici abilitățile și să îți
+                construiești un portofoliu.
               </p>
             </motion.div>
           </div>
         </div>
       </motion.div>
 
-      <Footer />
+      <FooterRo />
     </>
   );
 };

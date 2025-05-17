@@ -14,9 +14,9 @@ import { formatDistanceToNow } from "date-fns";
 
 import { axiosInstance } from "../lib/axios";
 
-import Sidebar from "../components/Sidebar";
+import SidebarRo from "../components/SidebarRo";
 
-import NavBar from "../components/layout/Navbar";
+import NavbarRo from "../components/layout/NavbarRo";
 
 const NotificationsPage = () => {
   const { data: authUser } = useQuery({
@@ -47,7 +47,7 @@ const NotificationsPage = () => {
     mutationFn: (id) => axiosInstance.delete(`/notifications/${id}`),
     onSuccess: () => {
       queryClient.invalidateQueries(["notifications"]);
-      toast.success("Notification deleted");
+      toast.success("Notificare ștersă cu succes");
     },
   });
 
@@ -69,7 +69,8 @@ const NotificationsPage = () => {
       case "like":
         return (
           <span>
-            <strong>{notification.relatedUser.name}</strong> liked your post
+            <strong>{notification.relatedUser.name}</strong> ți-a apreciat
+            postarea
           </span>
         );
       case "comment":
@@ -81,7 +82,7 @@ const NotificationsPage = () => {
             >
               {notification.relatedUser.name}
             </Link>{" "}
-            commented on your post
+            a adăugat un comentariu la postarea ta
           </span>
         );
       case "connectionAccepted":
@@ -93,7 +94,7 @@ const NotificationsPage = () => {
             >
               {notification.relatedUser.name}
             </Link>{" "}
-            accepted your connection request
+            a acceptat cererea ta de conexiune
           </span>
         );
       default:
@@ -128,22 +129,19 @@ const NotificationsPage = () => {
 
   return (
     <>
-      <NavBar />
-
+      <NavbarRo />
       <div className="max-w-[1440px] mx-auto px-4 py-6">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
           <div className="col-span-1">
-            <Sidebar user={authUser} />
+            <SidebarRo user={authUser} />
           </div>
 
           <div className="col-span-1 lg:col-span-3">
             <div className="bg-[#0F111A] rounded-lg shadow p-6">
-              <h1 className="text-2xl font-bold mb-6 text-white">
-                Notifications
-              </h1>
+              <h1 className="text-2xl font-bold mb-6 text-white">Notificări</h1>
 
               {isLoading ? (
-                <p className="text-gray-400">Loading notifications...</p>
+                <p className="text-gray-400">Se încarcă notificările...</p>
               ) : notifications && notifications.data.length > 0 ? (
                 <ul>
                   {notifications.data.map((notification) => (
@@ -198,7 +196,7 @@ const NotificationsPage = () => {
                                 markAsReadMutation(notification._id)
                               }
                               className="p-1 bg-blue-900 text-blue-300 rounded hover:bg-blue-800 transition-colors"
-                              aria-label="Mark as read"
+                              aria-label="Marcați ca citit"
                             >
                               <Eye size={16} />
                             </button>
@@ -208,7 +206,7 @@ const NotificationsPage = () => {
                               deleteNotificationMutation(notification._id)
                             }
                             className="p-1 bg-red-900 text-red-300 rounded hover:bg-red-800 transition-colors"
-                            aria-label="Delete notification"
+                            aria-label="Ștergeți notificarea"
                           >
                             <Trash2 size={16} />
                           </button>
@@ -218,7 +216,7 @@ const NotificationsPage = () => {
                   ))}
                 </ul>
               ) : (
-                <p className="text-gray-400">No notifications at the moment.</p>
+                <p className="text-gray-400">Nicio notificare momentan.</p>
               )}
             </div>
           </div>
